@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>业务中台监控大屏03</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/demo.js"></script>
+</head>
+
+<body class="bg" style="overflow:hidden">
+  <div class="header"><img src="images/header.png" /></div>
+  <div class="top_area">
+    <div class="box5">
+      <h2><img src="images/title08.png" /></h2>
+	  <div class="dashboard_item02">
+        <div class="dashboard02">
+        	<div id="ybp/ybp_avg_cpu" class="ybp" style="width:205px;height:205px;position:relative;left:-16px;top: 10px"></div>
+        </div>
+        <div class="dashboard_name"><span>cpu</span></div>
+      </div>
+	  <div class="dashboard_item02">
+        <div class="dashboard02">
+        	<div id="ybp/ybp_avg_memory" class="ybp" style="width:205px;height:205px;position:relative;left:-16px;top: 10px"></div>
+        </div>
+        <div class="dashboard_name"><span>物理内存</span></div>
+      </div>
+		<div class="clr"></div>
+		<div class="dashboard_item02">
+        <div class="dashboard02">
+        	<div id="ybp/ybp_avg_disk" class="ybp" style="width:205px;height:205px;position:relative;left:-16px;top: 10px"></div>
+        </div>
+         <div class="dashboard_name"><span>硬盘</span></div>
+      </div>
+	  <div class="dashboard_item02">
+        <div class="dashboard02">
+        	<div id="ybp/ybp_avg_visual_memory" class="ybp" style="width:205px;height:205px;position:relative;left:-16px;top: 10px"></div>
+        </div>
+        <div class="dashboard_name"><span>虚拟内存</span></div>
+      </div>
+    </div>
+    <div class="box6">
+		<div class="diagram_item02">
+       		<h2><img src="images/title09.png" /></h2>
+       		<div class="diagram02">
+       			<div id="zxtTime/zxt_avg_cpu?size=12" class="zxt" data-linetype="line" data-max=100
+       			style="width: 500px; height: 270px;position:relative ;top: -40px;left: -40px"></div>
+       		</div>
+        </div>
+		<div class="diagram_item02">
+       		<h2><img src="images/title10.png" /></h2>
+       		<div class="diagram02">
+       			<div id="zxtTime/zxt_avg_memory?size=12" class="zxt" data-linetype="line" data-max=100
+       			style="width: 500px; height: 270px;position:relative ;top: -40px;left: -40px"></div>
+       		</div>
+        </div>
+		<div class="clr"></div>
+		<div class="diagram_item02">
+       		<h2><img src="images/title11.png" /></h2>
+       		<div class="diagram02">
+       			<div id="zxtTime/zxt_avg_disk?size=12" class="zxt" data-linetype="line" data-max=100
+       			style="width: 500px; height: 270px;position:relative ;top: -40px;left: -40px"></div>
+       		</div>
+        </div>
+		<div class="diagram_item02">
+       		<h2><img src="images/title12.png" /></h2>
+       		<div class="diagram02">
+       			<div id="zxtTime/zxt_avg_visual_memory?size=12" class="zxt" data-linetype="line" data-max=100
+       			style="width: 500px; height: 270px;position:relative ;top: -40px;left: -40px"></div>
+       		</div>
+        </div>
+      
+    </div>
+  </div>
+  <div class="clr"></div>
+<div class="box7">
+	<h2><img src="images/title16.png" /></h2>
+  	<div class="diagram04">
+  		<div id="zxt/zzt_avg_cpu" class="zxt" data-linetype="bar" style="width: 420px; height: 300px; position: relative;"></div>
+  	</div>
+	<div class="diagram04">
+		<div id="zxt/zzt_avg_memory" class="zxt" data-linetype="bar" style="width: 420px; height: 300px; position: relative;"></div>
+	</div>
+	<div class="diagram04">
+		<div id="zxt/zzt_avg_disk" class="zxt" data-linetype="bar" style="width: 420px; height: 300px; position: relative;"></div>
+	</div>
+	<div class="diagram04">
+		<div id="zxt/zzt_avg_visual_memory" class="zxt" data-linetype="bar" style="width: 420px; height: 300px; position: relative;"></div>
+	</div>
+</div>	
+  
+</body>
+<script type="text/javascript">
+	$(function() {
+		//创建仪表盘
+		var ybps = $(".ybp");
+		for(var i = 0;i < ybps.length;i++){
+			createYbp(ybps[i].id);
+		}
+		
+
+		//创建折线图
+		var zxts = $(".zxt");
+		for(var i = 0;i < zxts.length;i++){
+			var zxt = $(zxts[i]);
+			createZxt(zxts[i].id,zxt);
+		}
+
+	});
+</script>
+</html>

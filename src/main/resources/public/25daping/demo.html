@@ -1,0 +1,87 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/dynamic.js"></script>
+</head>
+<body>
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	<div id="ybp/ybp_avg_cpu" class="ybp" style="width: 300px; height: 300px; position: absolute;"></div>
+	<div id="ybp/ybp_avg_disk" class="ybp" style="width: 300px; height: 300px; position: absolute;left: 300px"></div>
+	<div id="ybp/ybp_avg_memory" class="ybp" style="width: 300px; height: 300px; position: absolute;left: 600px"></div>
+	<div id="ybp/ybp_avg_visual_memory" class="ybp" style="width: 300px; height: 300px; position: absolute;left: 900px"></div>
+	<div id="getAlertInfo" style="width: 300px; height: 300px; position: absolute;left: 1200px;"></div>
+	<div id="zxt/appsStatics" class="zxt" style="width: 500px; height: 300px; position: absolute;left: 1500px"></div>
+	
+	<div id="zxt/zxt_sla_all_req" class="zxt" 
+	style="width: 800px; height: 300px; position: absolute;top: 300px"></div>
+	<div id="zxt/zxt_sla_all_success" class="zxt" 
+	style="width: 800px; height: 300px; position: absolute;left: 800px;top: 300px"></div>
+	<div id="zxt/zxt_sla_all_avgrespontime" class="zxt" 
+	style="width: 800px; height: 300px; position: absolute;top:600px"></div>
+	<div id="zxt/zxt_sla_all_maxrespontime" class="zxt" 
+	style="width: 800px; height: 300px; position: absolute;left: 800px;top:600px"></div>
+	
+	
+	<!-- <div id="getNodeHealth" class="pingfen" 
+	style="width: 800px; height: 300px; position: absolute;left: 1600px;top:300px"></div>
+	<div id="getContainerHealth" class="pingfen" 
+	style="width: 800px; height: 300px; position: absolute;left: 1600px;top:600px"></div> -->
+
+	
+
+</body>
+
+
+
+<script type="text/javascript">
+	$(function() {
+		//创建仪表盘
+		var ybps = $(".ybp");
+		for(var i = 0;i < ybps.length;i++){
+			createYbp(ybps[i].id);
+		}
+		
+
+		//创建折线图
+		var zxts = $(".zxt");
+		for(var i = 0;i < zxts.length;i++){
+			createZxt(zxts[i].id);
+		}
+		
+		createAlertInfo("getAlertInfo");
+		
+		/* var pingfens = $(".pingfen");
+		for(var i = 0;i < pingfens.length;i++){
+			createPingfen(pingfens[i].id);
+		} */
+		
+
+	});
+	
+	function createAlertInfo(domId){
+		$.get("/demo/"+domId,function(data){
+			var str ="";
+			str +="<table style='height:60%;width:100%;'>";
+			
+			for(var i = 0;i < data.titles.length;i++){
+				if(i % 2 == 0){
+					str += "<tr>";
+				}
+				str += "<td><spand style='font-size:25px'>";
+				str += data.titles[i]+":"+data.counts[i];
+				str += "</span></td>";
+				if(i % 2 == 1){
+					str +="</tr>";
+				}
+			}
+			str +="</table>";
+			
+			$("#"+domId).append(str);
+		});
+	}
+
+	
+</script>
+</html>

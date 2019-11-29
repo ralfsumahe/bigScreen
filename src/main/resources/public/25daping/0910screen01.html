@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>业务中台监控大屏01</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/demo.js"></script>
+</head>
+
+<body class="bg" style="overflow:hidden">
+  <div class="header"><img src="images/header.png" /></div>
+  <div class="left_area">
+    <div class="box1">
+	  <h2><img src="images/title1.png" /></h2>
+      <div class="dashboard_item">
+        <div class="dashboard">
+        	<div id="ybp/ybp_avg_cpu" class="ybp" style="width:170px;height:170px;position:relative;"></div>
+        </div>
+        <div class="dashboard_name"><span>cpu</span></div>
+      </div>
+      <div class="dashboard_item">
+        <div class="dashboard">
+        	<div id="ybp/ybp_avg_disk" class="ybp" style="width: 170px; height: 170px; position: relative;"></div>
+        </div>
+        <div class="dashboard_name"><span>硬盘</span></div>
+      </div>
+      <div class="dashboard_item">
+        <div class="dashboard">
+        	<div id="ybp/ybp_avg_memory" class="ybp" style="width: 170px; height: 170px; position: relative;"></div>
+        </div>
+        <div class="dashboard_name"><span>物理内存</span></div>
+      </div>
+      <div class="dashboard_item">
+        <div class="dashboard">
+        	<div id="ybp/ybp_avg_visual_memory" class="ybp" style="width: 170px; height: 170px; position: relative;"></div>
+        </div>
+        <div class="dashboard_name"><span>虚拟内存</span></div>
+      </div>
+      
+    </div>
+    <div class="box2">
+      <div class="diagram_item">
+        <h2><img src="images/title_02.png" /></h2>
+        <div class="diagram">
+        	<div id="zxtTime/zxt_sla_all_req" class="zxt" data-linetype="bar" data-isareastyle=false
+        	style="width: 560px; height: 280px; position: relative;"></div>
+        </div>
+      </div>
+      <div class="diagram_item">
+        <h2><img src="images/title_03.png" /></h2>
+        <div class="diagram">
+        	<div id="zxtTime/zxt_sla_all_success" class="zxt" data-linetype="line" data-isareastyle=false data-min=80 data-max=100
+			style="width: 560px; height: 280px; position: relative;"></div>
+        </div>
+      </div>
+      <div class="diagram_item">
+        <h2><img src="images/title_04.png" /></h2>
+        <div class="diagram">
+        	<div id="zxtTime/zxt_sla_all_avgrespontime" class="zxt" data-linetype="line" 
+			style="width: 560px; height: 280px; position: relative;"></div>
+        </div>
+      </div>
+      <div class="diagram_item">
+        <h2><img src="images/title_05.png" /></h2>
+        <div class="diagram">
+        	<div id="zxtTime/zxt_sla_all_maxrespontime" class="zxt" data-linetype="line"
+			style="width: 560px; height: 280px; position: relative;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="right_area">
+    <div class="box3">
+      <h2><img src="images/title2.png" /></h2>
+      <div class="warn">
+        <div>
+          <h2 class="f_l"><img src="images/hot_red.png" /> 紧急告警</h2>
+          <h3 class="red"><span id="紧急告警">0</span>个</h3>
+        </div>
+        <div>
+          <h2 class="f_l"><img src="images/hot_yellow.png" /> 重要告警</h2>
+          <h3 class="yellow"><span id="重要告警">0</span>个</h3>
+        </div>
+        <div>
+          <h2 class="f_l"><img src="images/hot_blue.png" /> 次要告警</h2>
+          <h3 class="blue"><span id="次要告警">0</span>个</h3>
+        </div>
+        <div>
+          <h2 class="f_l"><img src="images/hot_green.png" /> 提示告警</h2>
+          <h3 class="green"><span id="提示告警">0</span>个</h3>
+        </div>
+      </div>
+    </div>
+    <div class="box4">
+      <h2><img src="images/title_06.png"  /></h2>
+      <div class="dashbord03">
+      	<div id="ybp/nodesHealth" class="ybp2" style="width: 480px; height: 380px; position: relative;"></div>
+      </div>
+      <h2 ><img class="jx" src="images/title_07.png" style="position: relative;top: -130px" /></h2>
+	  <div class="dashbord03">
+	  	<div id="ybp/containersHealth" class="ybp2" style="width: 480px; height: 380px; position: relative;top: -130px"></div>
+	  </div>
+      
+    </div>
+  </div>
+  
+</body>
+<script type="text/javascript">
+	$(function() {
+		//创建仪表盘
+		var ybps = $(".ybp");
+		for(var i = 0;i < ybps.length;i++){
+			var ybp = $(ybps[i]);
+			createYbp(ybps[i].id,ybp);
+		}
+		
+		var ybps2 = $(".ybp2");
+		for(var i = 0;i < ybps2.length;i++){
+			var ybp2 = $(ybps2[i]);
+			createYbp2(ybps2[i].id,ybp);
+		}
+		
+
+		//创建折线图
+		var zxts = $(".zxt");
+		for(var i = 0;i < zxts.length;i++){
+			var zxt = $(zxts[i]);
+			createZxt(zxts[i].id,zxt);
+			//zxt.data("linetype"),zxt.data("isareastyle"),zxt.data("isqx"),zxt.data("min")
+		}
+		
+		
+		createAlertInfo("getAlertInfo");
+
+	});
+	
+	function createAlertInfo(domId){
+		$.get("/demo/"+domId,function(data){
+			for(var i = 0;i < data.titles.length;i++){
+				$("#"+data.titles[i]).html(data.counts[i]);
+			}
+		});
+		
+		setInterval(
+				function() {
+					var time = new Date().getTime();
+					$.get("/demo/"+domId+"?"+time,function(data){
+						for(var i = 0;i < data.titles.length;i++){
+							$("#"+data.titles[i]).html(data.counts[i]);
+						}
+					});
+				}, 10000);
+	}
+
+	
+</script>
+</html>

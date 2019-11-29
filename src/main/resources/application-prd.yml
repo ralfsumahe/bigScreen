@@ -1,0 +1,15 @@
+server:
+  port: 18083
+spring:
+  application:
+    name: bigscreenshowfront
+  redis:
+    host: ${REDIS_HOST:127.0.0.1}
+    port: ${REDIS_PORT:10001}
+
+    jedis:
+      pool:
+        maxActive: 3
+        maxIdle: 3
+        minIdle: 1
+    password: funo@123

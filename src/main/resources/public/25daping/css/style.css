@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0px; padding:0px;}
+.bg{ background:url(../images/bg.png) no-repeat center; background-size:cover;  font-size:16px;}
+h2,h3{ font-size:16px; font-weight:normal;}
+
+.left_area{ float:left; width:1251px; margin:2px 19px 28px 33px ;} 
+.box1{ background:url(../images/box1.png) no-repeat; height:208px; padding-top:30px;}
+.box1 h2{ float:left; margin-left: 59px;}
+.dashboard_item{ float:left; margin-left:52px; margin-right: 12px;}
+.dashboard{ width:172px; height:137px;}
+.dashboard02{ width:172px; height:177px;}
+.dashboard_name{ text-align:center; height:33px; line-height: 33px; margin-top:3px; background:url("../images/name_bg.png") no-repeat center center; }
+.dashboard_name span{ color:#04daec; font-size: 14px;}
+.warn{ width:600px; height:191px; float:left; margin-left:0px; margin-top:18px;  }
+.warn div{ float:left; width:280px; text-align:center; height:70px; }
+.warn div h2{ color:#26b0ff;}
+.warn div h3 span{ font-size:42px; font-weight: bold;}
+.red{ color:#fc4758; float: left; margin-left: 15px;margin-top: -10px;}
+.yellow{ color:#feca14; float: left;margin-left: 15px;margin-top: -10px;}
+.blue{ color:#00f4d4; float: left;margin-left: 15px;margin-top: -10px;}
+.green{ color:#05fd91; float: left;margin-left: 15px;margin-top: -10px;}
+
+.box2{ height:646px; background:url(../images/box2.png) no-repeat center; margin-top:30px; padding-top:30px;}
+.diagram_item{ margin:23px 50px 60px 60px; float:left;}
+.diagram_item h2{ margin-bottom:20px;}
+.diagram{ width:515px; height:185px;}
+
+.right_area{ width:596px; float:left; margin-top:2px;}
+.box3{ background:url(../images/box3.png) no-repeat; height:208px; padding:30px 40px; }
+.box3 h2{ margin-bottom:25px;}
+
+.box4{ background:url(../images/box4.png) no-repeat; height:646px; padding:30px 40px;}
+.box4 h2{ margin-bottom:15px; margin-top: 23px;}
+.box4 h3{ margin-bottom:8px;}
+.bar_bg{ position:relative; background:#0e4179; border-radius:20px; height:16px; margin-bottom:42px;}
+.bar{ position:absolute; background:#0e4179; border-radius:20px; height:16px;background: linear-gradient(left, #11a3ff, #83ffe3);
+        background: -ms-linear-gradient(left, #11a3ff, #83ffe3);
+        background: -webkit-linear-gradient(left, #11a3ff, #83ffe3);
+        background: -moz-linear-gradient(left, #11a3ff, #83ffe3); left:0px; top:0px;}
+.dashbord03{text-align: center;}
+.text01{color:#ff9f0e; text-align: center; margin: 12px auto; font-size:24px; }
+/*-------screen02-------*/
+.box5{ float: left; background:url(../images/box5.png) no-repeat; height:532px; padding-top:30px;padding-left: 54px;margin-bottom: 26px; width: 677px; }
+.dashboard_name02{ text-align:center; height:33px; line-height: 33px; margin-top:0px;}
+.dashboard_name02 span{ color:#04daec; font-size: 14px;}
+.dashboard_item02{ float:left; margin-left:86px; margin-top: 27px;}
+.clr{ clear:both;}
+.top_area{width:1860px;margin-top:2px; padding: 0px 30px; }
+.box6{ height:562px; background:url(../images/box6.png) no-repeat center; margin-bottom: 26px; float:left; width:1100px; margin-left: 27px; }
+.diagram_item02{margin-left:100px; float:left; margin-top:30px; }
+.diagram02{ width:393px;height: 185px;margin-top: 24px;}
+.box7{background:url(../images/box7.png) no-repeat; height:307px; padding-top:25px; margin:0px 30px;margin-bottom:40px; }
+.diagram03{ width:540px;height: 262px; margin-left: 30px; margin-top: 24px; float: left;}
+/*-------screen03-------*/
+.box08{height:925px; background:url(../images/box8.png) no-repeat center;  float:left; width:600px; margin-left: 28px;margin-bottom:38px;}
+.box08 h2{ margin-top:35px; margin-left:37px; }
+.diagram04{width:421px;height: 279px; margin-left: 30px; margin-top: 8px; float: left;}
+.f_l {float: left;}
+.jx{ margin-top: 10px; }
+.box7 h2{  margin-left: 54px; }

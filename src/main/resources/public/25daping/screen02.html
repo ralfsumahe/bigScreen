@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>业务中台监控大屏(4中心)</title>
+<link href="css25/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/dynamic.js"></script>
+</head>
+
+<body class="bg" style="overflow:hidden">
+  <div class="header"><img src="images/header.png" /></div>
+  <div class="left_area02">
+    <div class="box09">
+	  <h2><img src="images25/title17.png" /></h2>
+      <div class="diagram05">
+      	<div id="dynamiczxt/互联网能力中心" data-data="{count:30,timeLen:1,xtitle:'时间',
+	yInfos:[
+		{name:'吞吐量(次/分)',position:'left'},
+		{name:'成功率(%)',position:'right',max:'100'},
+		{name:'平均时长(ms)',position:'right',offset:'115'}]
+	,datas:[
+		{module:'intel_req',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0'},
+		{module:'intel_success',dataTitle:'成功率',type:'line',yAxisIndex:'1'},
+		{module:'intel_avgrespontime',dataTitle:'平均时长',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 940px; height: 420px; "></div>
+      </div>
+    </div>
+	<div class="box09">
+	  <h2><img src="images25/title17_1.png" /></h2>
+      <div class="diagram05">
+      	<div id="dynamiczxt/客户资料中心" data-data="{count:30,timeLen:1,xtitle:'时间',
+	yInfos:[
+		{name:'吞吐量(次/分)',position:'left'},
+		{name:'成功率(%)',position:'right',max:'100'},
+		{name:'平均时长(ms)',position:'right',offset:'115'}]
+	,datas:[
+		{module:'user_req',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0'},
+		{module:'user_success',dataTitle:'成功率',type:'line',yAxisIndex:'1'},
+		{module:'user_avgrespontime',dataTitle:'平均时长',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 940px; height: 420px; "></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="right_area02">
+    <div class="box09">
+	  <h2><img src="images25/title17_2.png" /></h2>
+      <div class="diagram05">
+      	<div id="dynamiczxt/产商品中心" data-data="{count:30,timeLen:1,xtitle:'时间',
+	yInfos:[
+		{name:'吞吐量(次/分)',position:'left'},
+		{name:'成功率(%)',position:'right',max:'100'},
+		{name:'平均时长(ms)',position:'right',offset:'115'}]
+	,datas:[
+		{module:'produce_req',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0'},
+		{module:'produce_success',dataTitle:'成功率',type:'line',yAxisIndex:'1'},
+		{module:'produce_avgrespontime',dataTitle:'平均时长',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 940px; height: 420px; "></div>
+      </div>
+    </div>
+	<div class="box09">
+	  <h2><img src="images25/title17_3.png" /></h2>
+      <div class="diagram05">
+      	<div id="dynamiczxt/订单中心" data-data="{count:30,timeLen:1,xtitle:'时间',
+	yInfos:[
+		{name:'吞吐量(次/分)',position:'left'},
+		{name:'成功率(%)',position:'right',max:'100'},
+		{name:'平均时长(ms)',position:'right',offset:'115'}]
+	,datas:[
+		{module:'order_req',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0'},
+		{module:'order_success',dataTitle:'成功率',type:'line',yAxisIndex:'1'},
+		{module:'order_avgrespontime',dataTitle:'平均时长',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 940px; height: 420px; " ></div>
+      </div>
+    </div>
+  </div>
+  
+</body>
+<script type="text/javascript">
+	$(function() {
+		//创建仪表盘
+		var ybps = $(".ybp");
+		for(var i = 0;i < ybps.length;i++){
+			createYbp(ybps[i].id);
+		}
+		
+		//创建折线图
+		var zxts = $(".zxt");
+		for(var i = 0;i < zxts.length;i++){
+			var zxt = $(zxts[i]);
+			createZxt(zxts[i].id,zxt);
+		}
+		
+		var zxtDynamics = $(".zxtDynamic");
+		for(var i = 0;i< zxtDynamics.length;i++){
+			var zxtDynamic = $(zxtDynamics[i]);
+			createZxtDynamic(zxtDynamics[i].id,zxtDynamic);
+		}
+
+	});
+
+</script>
+</html>

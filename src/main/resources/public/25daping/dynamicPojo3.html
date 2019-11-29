@@ -1,0 +1,248 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/dynamic.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+
+<link rel="stylesheet" href="layui/css/layui.css" media="all">
+</head>
+<body>
+<div id="micorserviceOtherInfosApp">
+	<div id="ybp/ybp_avg_cpu" class="ybp"
+		style="width: 200px; height: 200px; position: absolute; left: 100px"></div>
+	<div id="ybp/ybp_avg_disk" class="ybp"
+		style="width: 200px; height: 200px; position: absolute; left: 400px"></div>
+	<div id="ybp/ybp_avg_memory" class="ybp"
+		style="width: 220px; height: 200px; position: absolute; left: 700px"></div>
+	<div id="ybp/ybp_avg_visual_memory" class="ybp"
+		style="width: 220px; height: 200px; position: absolute; left: 1000px"></div>
+
+	<div style="position: absolute; top: 240px; left: 80px">
+		<table border="1"
+			style="width: 500px; height: 620px; text-align: center;">
+			<thead>
+				<th>分区</th>
+				<th>集群</th>
+				<th>物理机数量</th>
+				<th>虚拟机数量</th>
+			</thead>
+			<tr>
+				<td>业务区</td>
+				<td>计算节点</td>
+				<td>98</td>
+				<td>101</td>
+			</tr>
+			<tr>
+				<td>管理区</td>
+				<td>控制节点</td>
+				<td>55</td>
+				<td>11</td>
+			</tr>
+			<tr>
+				<td>管理区</td>
+				<td>管理节点</td>
+				<td>55</td>
+				<td>11</td>
+			</tr>
+			<tr>
+				<td>综合接入区</td>
+				<td>网络节点</td>
+				<td>3</td>
+				<td>12</td>
+			</tr>
+		</table>
+	</div>
+
+	<!-- <div id="dynamiczxt2/割接微服务1"
+		data-data="{count:30,timeLen:1,xtitle:'时间',
+	yInfos:[
+		{name:'CPU(%)',position:'left'},
+		{name:'内存(%)',position:'right',max:'100'},
+		{name:'容器数(个)',position:'right',offset:'115'}]
+	,datas:[
+		{module:'互联网中心_service_1_OTHER',dataTitle:'CPU',type:'bar',yAxisIndex:'0',field:'cpu'},
+		{module:'互联网中心_service_1_OTHER',dataTitle:'内存',type:'line',yAxisIndex:'1',field:'memery'},
+		{module:'互联网中心_service_1_OTHER',dataTitle:'容器数',type:'line',yAxisIndex:'2',field:'instanceNum'}]}"
+		class="zxtDynamic"
+		style="width: 800px; height: 360px; position: absolute; top: 200px; left: 600px"></div> -->
+		
+	<!-- <div style="width: 800px; height: 360px; position: absolute; top: 200px; left: 600px" -->
+	 <!-- <div id="dynamiczxt2/割接微服务1"
+				data-data="{count:30,timeLen:1,xtitle:'时间',
+			yInfos:[
+				{name:'CPU(%)',position:'left'},
+				{name:'内存(%)',position:'right',max:'100'},
+				{name:'容器数(个)',position:'right',offset:'115'}]
+			,datas:[
+				{module:'互联网中心_service_1_OTHER',dataTitle:'CPU',type:'bar',yAxisIndex:'0',field:'cpu'},
+				{module:'互联网中心_service_1_OTHER',dataTitle:'内存',type:'line',yAxisIndex:'1',field:'memery'},
+				{module:'互联网中心_service_1_OTHER',dataTitle:'容器数',type:'line',yAxisIndex:'2',field:'instanceNum'}]}"
+			class="zxtDynamic" style="width: 800px;height: 360px"></div> -->
+		 <div style="width: 800px; height: 360px; position: absolute; top: 200px; left: 600px" 
+		 class="layui-carousel" id="test1">
+		  <div carousel-item style="width: 100%;height: 100%">
+		  	<template v-for="gejieService in gejieServices">
+		    <div>
+		      <div v-bind:id=getServiceUrl(gejieService)
+				v-bind:data-data=getZxtData(gejieService)
+			class="zxtDynamic" style="width: 800px;height: 360px"></div>
+		      
+		    </div>
+		    </template>
+		    
+		    
+		  </div>
+		</div>
+	
+
+	<div id="dynamiczxt2/我的选择"
+		data-data="{count:30,timeLen:1,xtitle:'时间',
+	yInfos:[
+		{name:'CPU(%)',position:'left'},
+		{name:'内存(%)',position:'right',max:'100'},
+		{name:'容器数(个)',position:'right',offset:'115'}]
+	,datas:[
+		{module:'互联网中心_service_2_OTHER',dataTitle:'CPU',type:'bar',yAxisIndex:'0',field:'cpu'},
+		{module:'互联网中心_service_2_OTHER',dataTitle:'内存',type:'line',yAxisIndex:'1',field:'memery'},
+		{module:'互联网中心_service_2_OTHER',dataTitle:'容器数',type:'line',yAxisIndex:'2',field:'instanceNum'}]}"
+		class="zxtDynamic"
+		style="width: 800px; height: 360px; position: absolute; top: 560px; left: 600px"></div>
+
+	<div style="position: absolute;left: 1400px;">
+		<div style="position: absolute;height: 10px;width: 400px;top:10px;background: blue">
+			<div style="position: absolute;height: 100%;width: 70%;background: red"></div>
+		</div>
+		<div style="position: absolute;height: 10px;width: 400px;top:80px;background: blue">
+			<div style="position: absolute;height: 100%;width: 90%;background: red"></div>
+		</div>
+		<div style="position: absolute;height: 10px;width: 400px;top:150px;background: blue">
+			<div style="position: absolute;height: 100%;width: 50%;background: red"></div>
+		</div>
+	</div>
+
+	<div
+		style="position: absolute; top: 200px; left: 1400px; width: 500px; height: 620px;">
+		<table border="1" style="width: 100%; height: 100%">
+			<thead>
+				<th>微服务名</th>
+				<th>cpu(%)</th>
+				<th>内存(%)</th>
+				<th>容器数</th>
+			</thead>
+			<tbody>
+				<template v-for="micorserviceOtherInfo in micorserviceOtherInfos">
+				<tr onclick="serviceTrClick(this)" style="cursor:pointer"
+					v-bind:data-name=micorserviceOtherInfo[0].microserviceName>
+					<td>{{micorserviceOtherInfo[0].microserviceName}}</td>
+					<td>{{micorserviceOtherInfo[0].cpu}}</td>
+					<td>{{micorserviceOtherInfo[0].memery}}</td>
+					<td>{{micorserviceOtherInfo[0].instanceNum}}</td>
+				</tr>
+				</template>
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+
+
+
+<script type="text/javascript">
+	
+
+	var micorserviceOtherInfosApp = new Vue({
+		el:"#micorserviceOtherInfosApp",
+		data:{
+			micorserviceOtherInfos:'',
+			gejieServices:["互联网中心_service_2","互联网中心_service_1"],
+			begin:false
+		},
+		mounted(){
+			this.$nextTick(() => {
+	            setInterval(this.getMicorserviceOtherInfos, 5000);
+	        })
+		},
+		methods:{
+			getMicorserviceOtherInfos(){
+				$.get(addParamTime("/demo/getMicorserviceOtherInfos"),function(data){
+					micorserviceOtherInfosApp.micorserviceOtherInfos = data; 
+				});
+			},
+			getServiceUrl(service){
+				return "dynamiczxt2/"+service;
+			},
+			getZxtData(service){
+				var str = "{count:30,timeLen:1,xtitle:'时间',"+
+				"yInfos:["+
+					"{name:'CPU(%)',position:'left'},"+
+					"{name:'内存(%)',position:'right',max:'100'},"+
+					"{name:'容器数(个)',position:'right',offset:'115'}]"+
+				",datas:["+
+					"{module:'"+service+"_OTHER"+"',dataTitle:'CPU',type:'bar',yAxisIndex:'0',field:'cpu'},"+
+					"{module:'"+service+"_OTHER"+"',dataTitle:'内存',type:'line',yAxisIndex:'1',field:'memery'},"+
+					"{module:'"+service+"_OTHER"+"',dataTitle:'容器数',type:'line',yAxisIndex:'2',field:'instanceNum'}]}";
+				return str;
+			}
+		},
+		watch:{
+			begin:function(){
+				var zxtDynamics = $(".zxtDynamic");
+				for (var i = 0; i < zxtDynamics.length; i++) {
+					var zxtDynamic = $(zxtDynamics[i]);
+					createZxtDynamic(zxtDynamics[i].id, zxtDynamic);
+				}
+			}
+		}
+	});
+
+	$(function() {
+		
+		//创建仪表盘
+		var ybps = $(".ybp");
+		for (var i = 0; i < ybps.length; i++) {
+			createYbp(ybps[i].id);
+		}
+
+		var ybps2 = $(".ybp2");
+		for (var i = 0; i < ybps2.length; i++) {
+			var ybp2 = $(ybps2[i]);
+			createYbp2(ybps2[i].id, ybps2);
+		}
+		
+		setTimeout(
+			    function(){
+			    	micorserviceOtherInfosApp.begin = true;
+			    },3000
+		);
+	});
+	
+	function serviceTrClick(o){
+		var redisModuleKey = $(o).data("name")+"_OTHER";
+		var dataJo = eval('(' + $("#dynamiczxt2\\/我的选择").data("data") + ')'); 
+		for(var i = 0;i< dataJo.datas.length;i++ ){
+			var data = dataJo.datas[i];
+			data["module"] = redisModuleKey;
+		}
+		$("#dynamiczxt2\\/我的选择").data("data",JSON.stringify(dataJo));
+		clearInterval($("#dynamiczxt2\\/我的选择")[0].interval);
+		createZxtDynamic("dynamiczxt2/我的选择",$("#dynamiczxt2\\/我的选择"));
+		
+	}
+</script>
+<script src="layui/layui.js"></script>
+<script>
+layui.use('carousel', function(){
+  var carousel = layui.carousel;
+  //建造实例
+  carousel.render({
+    elem: '#test1'
+    ,width: '800px' //设置容器宽度
+    ,height:'360px'
+    ,arrow: 'always' //始终显示箭头
+    //,anim: 'updown' //切换动画方式
+  });
+});
+</script>
+</html>

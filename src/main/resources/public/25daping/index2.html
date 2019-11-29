@@ -1,0 +1,132 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>APM大屏监控</title>
+<link href="css2/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/demo.js"></script>
+</head>
+
+<body class="bg">
+  <div class="header"><img src="images2/header.png" /></div>
+  <div class="left_area">
+    <div class="box1">
+      <div class="dashboard_item">
+        <div id="ybp/ybp_avg_cpu" class="ybp dashboard_item" style="width: 205; height: 180;position:relative;"></div>
+      </div>
+      <div class="dashboard_item">
+        <div id="ybp/ybp_avg_disk" class="ybp" style="width: 205; height: 180; position: relative;"></div>
+      </div>
+      <div class="dashboard_item">
+        <div id="ybp/ybp_avg_memory" class="ybp" style="width: 205; height: 180; position: relative;"></div>
+      </div>
+      <div class="dashboard_item">
+        <div id="ybp/ybp_avg_visual_memory" class="ybp" style="width: 205; height: 180; position: relative;"></div>
+      </div>
+      <div class="warn">
+        <div>
+          <h2><img src="images2/hot_red.png" /> 紧急告警</h2>
+          <h3 class="red"><span id="紧急告警">0</span>个</h3>
+        </div>
+        <div>
+          <h2><img src="images2/hot_yellow.png" /> 重要告警</h2>
+          <h3 class="yellow"><span id="重要告警">0</span>个</h3>
+        </div>
+        <div>
+          <h2><img src="images2/hot_blue.png" /> 次要告警</h2>
+          <h3 class="blue"><span id="次要告警">0</span>个</h3>
+        </div>
+        <div>
+          <h2><img src="images2/hot_green.png" /> 提示告警</h2>
+          <h3 class="green"><span id="提示告警">0</span>个</h3>
+        </div>
+      </div>
+    </div>
+    <div class="box2">
+      <div class="diagram_item">
+        <div id="zxt/zxt_sla_all_req" class="zxt" 
+			style="width: 520; height: 310; position: relative;"></div>
+      </div>
+      <div class="diagram_item">
+       
+        <div id="zxt/zxt_sla_all_success" class="zxt" 
+			style="width: 520; height: 310; position: relative;"></div>
+      </div>
+      <div class="diagram_item">
+       
+        <div id="zxt/zxt_sla_all_avgrespontime" class="zxt" 
+			style="width: 520; height: 310; position: relative;"></div>
+      </div>
+      <div class="diagram_item">
+       
+        <div id="zxt/zxt_sla_all_maxrespontime" class="zxt" 
+			style="width: 520; height: 310; position: relative;"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="right_area">
+    <div class="box3">
+      <div id="zxt/appsStatics" class="zxt" data-isareastyle="false"
+      		style="width: 520; height: 310; position: relative;"></div>
+    </div>
+    <div class="box4">
+       <div id="ybp/containersHealth" class="ybp2" style="width: 600; height: 380; position: relative;"></div>
+       <div id="ybp/nodesHealth" class="ybp2" style="width: 600; height: 380; position: relative;top: -110px;"></div>
+    </div>
+  </div>
+  
+</body>
+<script type="text/javascript">
+	$(function() {
+		//创建仪表盘
+		var ybps = $(".ybp");
+		for(var i = 0;i < ybps.length;i++){
+			createYbp(ybps[i].id);
+		}
+		
+
+		//创建折线图
+		var zxts = $(".zxt");
+		for(var i = 0;i < zxts.length;i++){
+			var zxt = $(zxts[i]);
+			createZxt(zxts[i].id,zxt.data("linetype"),zxt.data("isareastyle"));
+		}
+		
+		createAlertInfo("getAlertInfo");
+		
+		/* var pingfens = $(".pingfen");
+		for(var i = 0;i < pingfens.length;i++){
+			createPingfen(pingfens[i].id);
+		} */
+		
+		var ybps2 = $(".ybp2");
+		for(var i = 0;i < ybps2.length;i++){
+			createYbp2(ybps2[i].id);
+		}
+		
+		
+
+	});
+	
+	function createAlertInfo(domId){
+		$.get("/demo/"+domId,function(data){
+			for(var i = 0;i < data.titles.length;i++){
+				$("#"+data.titles[i]).html(data.counts[i]);
+			}
+		});
+		
+		setInterval(
+				function() {
+					$.get("/demo/"+domId,function(data){
+						for(var i = 0;i < data.titles.length;i++){
+							$("#"+data.titles[i]).html(data.counts[i]);
+						}
+					});
+				}, 1000);
+	}
+
+	
+</script>
+</html>

@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0px; padding:0px;}
+.bg{ background:url(../images/bg.png) no-repeat center; background-size:cover; width:1920px; height:1080px; font-size:16px;}
+h2,h3{ font-size:16px; font-weight:normal;}
+
+.left_area{ float:left; width:1250px; margin:25px;}
+.box1{ background:url(../images/box1.png) no-repeat; height:208px; padding-top:30px;}
+.dashboard_item{ float:left; margin-left:20px;}
+.dashboard{ width:170px; height:145px;}
+.dashboard_name{ text-align:center; height:20px; margin-top:3px;}
+.dashboard_name span{ color:#fff; background:#26b0ff; border-radius:20px; padding:2px 10px;}
+.warn{ background:url(../images/line.png) no-repeat center center; width:260px; height:191px; float:left; margin-left:60px;}
+.warn div{ float:left; width:130px; text-align:center; height:85px; padding-top:10px;}
+.warn div h2{ color:#26b0ff;}
+.warn div h3 span{ font-size:42px;}
+.red{ color:#ff0000;}
+.yellow{ color:#feca14;}
+.blue{ color:#00f4d4;}
+.green{ color:#1eff00;}
+
+.box2{ height:646px; background:url(../images/box2.png) no-repeat center; margin-top:30px; padding-top:30px;}
+.diagram_item{ margin:auto 50px 50px 50px; float:left;}
+.diagram_item h2{ margin-bottom:20px;}
+.diagram{ width:515px; height:230px;}
+
+.right_area{ width:596px; float:left; margin-top:25px;}
+.box3{ background:url(../images/box3.png) no-repeat; height:295px; padding:30px 40px; margin-bottom:30px;}
+.box3 h2{ margin-bottom:25px;}
+
+.box4{ background:url(../images/box4.png) no-repeat; height:500px; padding:20px 0px;}
+.box4 h2{ margin-bottom:15px;}
+.box4 h3{ color:#26f2ff; margin-bottom:8px;}
+.bar_bg{ position:relative; background:#0e4179; border-radius:20px; height:16px; margin-bottom:42px;}
+.bar{ position:absolute; background:#0e4179; border-radius:20px; height:16px;background: linear-gradient(left, #11a3ff, #83ffe3);
+        background: -ms-linear-gradient(left, #11a3ff, #83ffe3);
+        background: -webkit-linear-gradient(left, #11a3ff, #83ffe3);
+        background: -moz-linear-gradient(left, #11a3ff, #83ffe3); left:0px; top:0px;}

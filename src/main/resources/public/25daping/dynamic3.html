@@ -1,0 +1,157 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/dynamic.js"></script>
+</head>
+<body>
+	<div style="position: absolute;">
+		<h1>设备情况</h1>
+		<span style="font-size: 24px">物理机：109</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 24px">虚拟机：238</span>
+	</div>
+	<div style="position: absolute;left: 400px">
+		<h1>资源分配率</h1>
+	</div>
+	<div id="ybp/containersHealth" class="ybp2" style="width: 400px; height: 400px; position: absolute;left: 400px;top: 100px"></div>
+	<div id="ybp/nodesHealth?1" class="ybp2" style="width: 400px; height: 400px; position: absolute;left: 900px;top: 100px"></div>
+	<div id="ybp/containersHealth?2" class="ybp2" style="width: 400px; height: 400px; position: absolute;left: 1400px;top: 100px"></div>
+	
+	<div id="dynamiczxt/动态生成多1" data-data="{count:20,timeLen:5,xtitle:'时间',
+	yInfos:[
+		{name:'cpu占用率(%)',position:'left',fontSize:16},
+		{name:'内存占用率(%)',position:'right',fontSize:16},
+		{name:'容器健康度(%)',position:'right',offset:'120',fontSize:16}]
+	,datas:[
+		{module:'mservice1_cpu',dataTitle:'cpu占用率',type:'bar',yAxisIndex:'0'},
+		{module:'mservice1_memery',dataTitle:'内存占用率',type:'line',yAxisIndex:'1'},
+		{module:'mservice1_health',dataTitle:'容器健康度',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 620px; height: 400px; position: absolute;top: 400px"></div>
+	
+	<div id="dynamiczxt/动态生成多2" data-data="{count:20,timeLen:5,xtitle:'时间',
+	yInfos:[
+		{name:'cpu占用率(%)',position:'left',fontSize:16},
+		{name:'内存占用率(%)',position:'right',fontSize:16},
+		{name:'容器健康度(%)',position:'right',offset:'120',fontSize:16}]
+	,datas:[
+		{module:'mservice2_cpu',dataTitle:'cpu占用率',type:'bar',yAxisIndex:'0'},
+		{module:'mservice2_memery',dataTitle:'内存占用率',type:'line',yAxisIndex:'1'},
+		{module:'mservice2_health',dataTitle:'容器健康度',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 620px; height: 400px; position: absolute;top: 800px"></div>
+	
+	<div id="dynamiczxt/动态生成多3" data-data="{count:20,timeLen:5,xtitle:'时间',
+	yInfos:[
+		{name:'cpu占用率(%)',position:'left',fontSize:16},
+		{name:'内存占用率(%)',position:'right',fontSize:16},
+		{name:'容器健康度(%)',position:'right',offset:'120',fontSize:16}]
+	,datas:[
+		{module:'mservice3_cpu',dataTitle:'cpu占用率',type:'bar',yAxisIndex:'0'},
+		{module:'mservice3_memery',dataTitle:'内存占用率',type:'line',yAxisIndex:'1'},
+		{module:'mservice3_health',dataTitle:'容器健康度',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 620px; height: 400px; position: absolute;top: 400px;left: 680px"></div>
+	
+	<div id="dynamiczxt/动态生成多4" data-data="{count:20,timeLen:5,xtitle:'时间',
+	yInfos:[
+		{name:'cpu占用率(%)',position:'left',fontSize:16},
+		{name:'内存占用率(%)',position:'right',fontSize:16},
+		{name:'容器健康度(%)',position:'right',offset:'120',fontSize:16}]
+	,datas:[
+		{module:'mservice1_cpu',dataTitle:'cpu占用率',type:'bar',yAxisIndex:'0'},
+		{module:'mservice1_memery',dataTitle:'内存占用率',type:'line',yAxisIndex:'1'},
+		{module:'mservice1_health',dataTitle:'容器健康度',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 620px; height: 400px; position: absolute;top: 800px;left: 680px"></div>
+	
+	<div id="table" style="position: absolute;left: 1400px">
+		<table border="1" style="height: 500px;width: 550px;top: 450px;position: absolute;">
+			
+		</table>
+	</div>
+
+
+
+</body>
+
+
+
+<script type="text/javascript">
+	$(function() {
+		//创建仪表盘
+		var ybps = $(".ybp");
+		for(var i = 0;i < ybps.length;i++){
+			createYbp(ybps[i].id);
+		}
+		
+		var ybps = $(".ybp2");
+		for(var i = 0;i < ybps.length;i++){
+			createYbp2(ybps[i].id);
+		}
+		
+		//创建折线图
+		var zxts = $(".zxt");
+		for(var i = 0;i < zxts.length;i++){
+			var zxt = $(zxts[i]);
+			createZxt(zxts[i].id,zxt);
+		}
+		
+		var zxtDynamics = $(".zxtDynamic");
+		for(var i = 0;i< zxtDynamics.length;i++){
+			var zxtDynamic = $(zxtDynamics[i]);
+			createZxtDynamic(zxtDynamics[i].id,zxtDynamic);
+		}
+		
+		
+		setInterval(tableAddServices(),5000);
+
+	});
+	
+	
+	function tableAddServices(){
+		$.get(addParamTime("/demo/getMicroServices"),function(data){
+			$("#table table").empty();
+			var str = "<tr>"+
+				"<td>服务名称</td>"+
+				"<td>容器总数(个)</td>"+
+				"<td>cpu占用率(%)(正序倒序)</td>"+
+				"<td>内存占用率(%)(正序倒序)</td>"+
+				"<td>容器健康度(%)(正序倒序)</td>"+
+			"</tr>";
+			for(var j = 0;j < 3;j++){
+				
+			}
+			for(var i = 0;i < data.length;i++){
+				var d = data[i];
+				str +="<tr class=\"service\" data-data=\"{count:20,timeLen:5,xtitle:'时间',"+
+					"yInfos:["+
+						"{name:'cpu占用率(%)',position:'left',fontSize:16},"+
+						"{name:'内存占用率(%)',position:'right',fontSize:16}"+
+						"{name:'容器健康度(%)',position:'right',offset:'120',fontSize:16}]"+
+					",datas:["+
+					"{module:'"+d.name+"_cpu',dataTitle:'cpu占用率',type:'bar',yAxisIndex:'0'},"+
+					"{module:'"+d.name+"_memery',dataTitle:'内存占用率',type:'line',yAxisIndex:'1'},"+
+					"{module:'"+d.name+"_health',dataTitle:'容器健康度',type:'line',yAxisIndex:'2'}]}"+ 
+						"\">"+
+								"<td>"+(d.cnname?d.cnname:d.name)+"</td>"+
+								"<td>"+d.container+"</td>"+
+								"<td>"+d.cpu+"</td>"+
+								"<td>"+d.memery+"</td>"+
+								"<td>"+d.health+"</td>"+
+							"</tr>";
+				
+			}
+			str +="<tr><td colspan=4>上一页，下一页<td></tr>";
+			$("#table table").append(str);
+			
+			servicesAddClick();
+		});
+	}
+	
+	function servicesAddClick(){
+		$(".service").click(function(){
+			$("#dynamiczxt\\/动态生成多4").data("data",$(this).data("data"));
+			clearInterval($("#dynamiczxt\\/动态生成多4")[0].interval);
+			createZxtDynamic("dynamiczxt/动态生成多4",$("#dynamiczxt\\/动态生成多4"));
+		});
+	}
+
+</script>
+</html>

@@ -1,0 +1,127 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/dynamic.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	<div id="ybp/ybp_avg_cpu" class="ybp" style="width: 200px; height: 200px; position: absolute;left: 100px"></div>
+	<div id="ybp/ybp_avg_disk" class="ybp" style="width: 200px; height: 200px; position: absolute;left: 400px"></div>
+	<div id="ybp/ybp_avg_memory" class="ybp" style="width: 220px; height: 200px; position: absolute;left: 700px"></div>
+	<div id="ybp/ybp_avg_visual_memory" class="ybp" style="width: 220px; height: 200px; position: absolute;left: 1000px"></div>
+	<div id="getAlertInfo" style="width: 300px; height: 300px; position: absolute;left: 1400px;"></div>
+	
+	<div id="dynamiczxt2/互联网能力中心" data-data="{count:40,timeLen:1,xtitle:'时间',
+	yInfos:[
+		{name:'吞吐量(次/分)',position:'left'},
+		{name:'成功率(%)',position:'right',max:'100'},
+		{name:'平均时长(ms)',position:'right',offset:'115'}]
+	,datas:[
+		{module:'all_BUSINESS',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0',field:'req'},
+		{module:'all_BUSINESS',dataTitle:'成功率',type:'line',yAxisIndex:'1',field:'success'},
+		{module:'all_BUSINESS',dataTitle:'平均时长',type:'line',yAxisIndex:'2',field:'avgrespontime'}]}" 
+	class="zxtDynamic" style="width: 1400px; height: 460px;position: absolute;top: 200px"></div>
+      </div>
+      
+    
+	
+	<div style="width: 600px; height: 700px;position: absolute;top: 200px;left: 1300px">
+		<table style="width: 100%;height:100%;text-align: center;" border="1">
+			<thead>
+				<th>中心</th>
+				<th>微服务数</th>
+				<th>容器数</th>
+				<th>虚拟机数</th>
+			</thead>
+			<tbody id="centerInfosApp">
+				<template v-for="centerInfo in centerInfos">
+					<tr>
+						<td>{{centerInfo[0].centerName}}</td>
+						<td>{{centerInfo[0].microserviceNum}}<span v-if="centerInfo[0].microserviceNum>centerInfo[1].microserviceNum">&nbsp;↑</span><span v-if="centerInfo[0].microserviceNum<centerInfo[1].microserviceNum">&nbsp;↓</span></td>
+						<td>{{centerInfo[0].containerNum}}</td>
+						<td>{{centerInfo[0].visualmachineNum}}<span v-if="centerInfo[0].visualmachineNum>centerInfo[1].visualmachineNum">&nbsp;↑</span><span v-if="centerInfo[0].visualmachineNum<centerInfo[1].visualmachineNum">&nbsp;↓</span></td>
+					</tr>
+				</template>
+			</tbody>
+		</table>
+	</div>
+	<div id="ybp/nodesHealth" class="ybp2" style="width: 480px; height: 380px; position: absolute;top:660px "></div>
+	<div id="ybp/containersHealth" class="ybp2" style="width: 480px; height: 380px; position: absolute;top:660px;left: 420px "></div>
+	<div id="ybp/micro_services_health" class="ybp2" style="width: 480px; height: 380px; position: absolute;top:660px;left: 840px "></div>
+	
+</body>
+
+
+
+<script type="text/javascript">
+	var centerInfosApp = new Vue({
+		el:"#centerInfosApp",
+		data:{
+			centerInfos:''
+		},
+		mounted(){
+			this.$nextTick(() => {
+                setInterval(this.getCenterInfos, 5000);
+            })
+		},
+		methods:{
+			getCenterInfos(){
+				$.get(addParamTime("/demo/getFrontCenterInfos"),function(data){
+					centerInfosApp.centerInfos = data; 
+				});
+			}
+		}
+	});
+
+	$(function() {
+		//创建仪表盘
+		var ybps = $(".ybp");
+		for(var i = 0;i < ybps.length;i++){
+			createYbp(ybps[i].id);
+		}
+		
+		var ybps2 = $(".ybp2");
+		for(var i = 0;i < ybps2.length;i++){
+			var ybp2 = $(ybps2[i]);
+			createYbp2(ybps2[i].id,ybps2);
+		}
+		
+
+		var zxtDynamics = $(".zxtDynamic");
+		for(var i = 0;i< zxtDynamics.length;i++){
+			var zxtDynamic = $(zxtDynamics[i]);
+			createZxtDynamic(zxtDynamics[i].id,zxtDynamic);
+		}
+		
+		createAlertInfo("getAlertInfo");
+		
+		
+	});
+	
+	function createAlertInfo(domId){
+		$.get(addParamTime("/demo/"+domId),function(data){
+			var str ="";
+			str +="<table style='height:60%;width:100%;'>";
+			
+			for(var i = 0;i < data.titles.length;i++){
+				if(i % 2 == 0){
+					str += "<tr>";
+				}
+				str += "<td><spand style='font-size:25px'>";
+				str += data.titles[i]+":"+data.counts[i];
+				str += "</span></td>";
+				if(i % 2 == 1){
+					str +="</tr>";
+				}
+			}
+			str +="</table>";
+			
+			$("#"+domId).append(str);
+		});
+	}
+	
+</script>
+</html>

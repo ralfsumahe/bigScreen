@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>业务中台监控大屏02</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/demo.js"></script>
+</head>
+
+<body class="bg" style="overflow:hidden">
+  <div class="header"><img src="images/header.png" />
+  </div>
+  <div class="box08">
+	  <h2><img src="images/title13.png" /></h2>
+	  <div class="diagram03">
+	  	<div id="zxtTime/zxt_sla_intel_req" class="zxt" data-linetype="bar" data-isareastyle=false
+			style="width: 560px; height: 300px; position: relative;"></div>
+	  </div>
+	  <div class="diagram03">
+	  	<div id="zxtTime/zxt_sla_intel_success" class="zxt" data-linetype="line" data-isareastyle=false data-min=80 data-max=100
+			style="width: 560px; height: 300px; position: relative;"></div>
+	  </div>
+	  <div class="diagram03">
+	  	<div id="zxtTime/zxt_sla_intel_respontime" class="zxt" data-linetype="line" data-isareastyle=true
+			style="width: 560px; height: 300px; position: relative;"></div>
+	  </div>
+  </div>
+  <div class="box08">
+	  <h2><img src="images/title14.png" /></h2>
+	  <div class="diagram03">
+	  	<div id="zxtTime/zxt_sla_user_req" class="zxt"  data-linetype="bar" data-isareastyle=false
+			style="width: 560px; height: 300px; position: relative;"></div>
+	  </div>
+	  <div class="diagram03">
+	  	<div id="zxtTime/zxt_sla_user_success" class="zxt" data-linetype="line" data-isareastyle=false data-min=80 data-max=100
+			style="width: 560px; height: 300px; position: relative;"></div>
+	  </div>
+	  <div class="diagram03">
+	  	<div id="zxtTime/zxt_sla_user_respontime" class="zxt" data-linetype="line" data-isareastyle=true
+			style="width: 560px; height: 300px; position: relative;"></div>
+	  </div>
+  </div><div class="box08">
+	  <h2><img src="images/title15.png" /></h2>
+	  <div class="diagram03">
+	  	<div id="zxtTime/zxt_sla_produce_req" class="zxt" data-linetype="bar" data-isareastyle=false
+			style="width: 560px; height: 300px; position: relative;"></div>
+	  </div>
+	  <div class="diagram03">
+	  	<div id="zxtTime/zxt_sla_produce_success" class="zxt" data-linetype="line" data-isareastyle=false data-min=80 data-max=100
+			style="width: 560px; height: 300px; position: relative;"></div>
+	  </div>
+	  <div class="diagram03">
+	  	<div id="zxtTime/zxt_sla_produce_respontime" class="zxt" data-linetype="line" data-isareastyle=true 
+			style="width: 560px; height: 300px; position: relative;"></div>
+	  </div>
+  </div>
+  
+</body>
+<script type="text/javascript">
+	$(function() {
+		//创建仪表盘
+		var ybps = $(".ybp");
+		for(var i = 0;i < ybps.length;i++){
+			createYbp(ybps[i].id);
+		}
+		
+
+		//创建折线图
+		var zxts = $(".zxt");
+		for(var i = 0;i < zxts.length;i++){
+			var zxt = $(zxts[i]);
+			createZxt(zxts[i].id,zxt);
+		}
+
+	});
+</script>
+</html>

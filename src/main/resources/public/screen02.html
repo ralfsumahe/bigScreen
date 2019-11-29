@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/dynamic.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<link rel="stylesheet" href="layui/css/layui.css" media="all">
+</head>
+
+<body class="bg" style="overflow:hidden">
+	<div id="centerMicroserviceApiInfosApp">
+		<div class="header">
+			<img src="images/header.png" />
+		</div>
+		<div class="page02_left">
+			<div class="box08">
+				<h2>
+					<img src="images/title08.png" />
+				</h2>
+				<div id="dynamiczxt2/互联网能力中心"
+					data-data="{count:20,timeLen:1,xtitle:'时间',other:{barWidth:10},
+				yInfos:[
+					{name:'吞吐量(次/分)',position:'left',fontSize:'18'},
+					{name:'成功率(%)',position:'right',max:'100',fontSize:'18'},
+					{name:'时长(ms)',position:'right',offset:'100',fontSize:'18'}]
+				,datas:[
+					{module:'CENTER:互联网中心:BUSINESS',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0',field:'req'},
+					{module:'CENTER:互联网中心:BUSINESS',dataTitle:'成功率',type:'line',yAxisIndex:'1',field:'success'},
+					{module:'CENTER:互联网中心:BUSINESS',dataTitle:'时长',type:'line',yAxisIndex:'2',field:'avgrespontime'}]}"
+					class="zxtDynamic"
+					style="width: 580px; height: 300px; position: relative; top: -30px"></div>
+			</div>
+			<div class="box08">
+				<h2>
+					<img src="images/title09.png" />
+				</h2>
+				<div id="dynamiczxt2/客户资料中心"
+					data-data="{count:20,timeLen:1,xtitle:'时间',other:{barWidth:10},
+				yInfos:[
+					{name:'吞吐量(次/分)',position:'left',fontSize:'18'},
+					{name:'成功率(%)',position:'right',max:'100',fontSize:'18'},
+					{name:'时长(ms)',position:'right',offset:'100',fontSize:'18'}]
+				,datas:[
+					{module:'CENTER:客户资料中心:BUSINESS',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0',field:'req'},
+					{module:'CENTER:客户资料中心:BUSINESS',dataTitle:'成功率',type:'line',yAxisIndex:'1',field:'success'},
+					{module:'CENTER:客户资料中心:BUSINESS',dataTitle:'时长',type:'line',yAxisIndex:'2',field:'avgrespontime'}]}"
+					class="zxtDynamic"
+					style="width: 580px; height: 300px; position: relative; top: -30px"></div>
+			</div>
+			<div class="box08">
+				<h2>
+					<img src="images/title10.png" />
+				</h2>
+				<div id="dynamiczxt2/产商品中心"
+					data-data="{count:20,timeLen:1,xtitle:'时间',other:{barWidth:10},
+				yInfos:[
+					{name:'吞吐量(次/分)',position:'left',fontSize:'18'},
+					{name:'成功率(%)',position:'right',max:'100',fontSize:'18'},
+					{name:'时长(ms)',position:'right',offset:'100',fontSize:'18'}]
+				,datas:[
+					{module:'CENTER:产商品中心:BUSINESS',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0',field:'req'},
+					{module:'CENTER:产商品中心:BUSINESS',dataTitle:'成功率',type:'line',yAxisIndex:'1',field:'success'},
+					{module:'CENTER:产商品中心:BUSINESS',dataTitle:'时长',type:'line',yAxisIndex:'2',field:'avgrespontime'}]}"
+					class="zxtDynamic"
+					style="width: 580px; height: 300px; position: relative; top: -30px"></div>
+			</div>
+		</div>
+		<div class="page02_middle">
+			<div class="box08">
+				<h2>
+					<img src="images/title06.png" />
+				</h2>
+				<table width="520" border="0" class="table02">
+					<tr>
+						<th scope="col" style="width: 250px;">名称</th>
+						<th scope="col">当前容器</th>
+						<th scope="col">容器变化</th>
+						<th scope="col">容器范围</th>
+					</tr>
+					<tbody v-if="centerMicroserviceApiInfos['互联网中心'] != null">
+					<template v-for="service in centerMicroserviceApiInfos['互联网中心']['microservices']">
+					<tr>
+						<td>{{service[0].cnname}}</td>
+						<td>{{service[0].currentContainerNum}}<span v-if="service[0].currentContainerNum>service[1].currentContainerNum" class="valueUp">&nbsp;↑</span><span v-if="service[0].currentContainerNum<service[1].currentContainerNum" class="valueDown">&nbsp;↓</span></td>
+						<td>{{service[0].currentContainerNum - service[1].currentContainerNum}}</td>
+						<td>{{service[0].initContainerNum}}-{{service[0].maxContainerNum}}</td>
+					</tr>
+					</template>
+					</tbody>	
+				</table>
+			</div>
+			<div class="box08">
+				<h2>
+					<img src="images/title06.png" />
+				</h2>
+				<table width="520" border="0" class="table02">
+					<tr>
+						<th scope="col" style="width: 250px;">名称</th>
+						<th scope="col">当前容器</th>
+						<th scope="col">容器变化</th>
+						<th scope="col">容器范围</th>
+					</tr>
+					<tbody v-if="centerMicroserviceApiInfos['客户资料中心'] != null">
+					<template v-for="service in centerMicroserviceApiInfos['客户资料中心']['microservices']">
+					<tr>
+						<td>{{service[0].cnname}}</td>
+						<td>{{service[0].currentContainerNum}}<span v-if="service[0].currentContainerNum>service[1].currentContainerNum" class="valueUp">&nbsp;↑</span><span v-if="service[0].currentContainerNum<service[1].currentContainerNum" class="valueDown">&nbsp;↓</span></td>
+						<td>{{service[0].currentContainerNum - service[1].currentContainerNum}}</td>
+						<td>{{service[0].initContainerNum}}-{{service[0].maxContainerNum}}</td>
+					</tr>
+					</template>
+					</tbody>	
+				</table>
+			</div>
+			<div class="box08">
+				<h2>
+					<img src="images/title06.png" />
+				</h2>
+				<table width="520" border="0" class="table02">
+					<tr>
+						<th scope="col" style="width: 250px;">名称</th>
+						<th scope="col">当前容器</th>
+						<th scope="col">容器变化</th>
+						<th scope="col">容器范围</th>
+					</tr>
+					<tbody v-if="centerMicroserviceApiInfos['产商品中心'] != null">
+					<template v-for="service in centerMicroserviceApiInfos['产商品中心']['microservices']">
+					<tr>
+						<td>{{service[0].cnname}}</td>
+						<td>{{service[0].currentContainerNum}}<span v-if="service[0].currentContainerNum>service[1].currentContainerNum" class="valueUp">&nbsp;↑</span><span v-if="service[0].currentContainerNum<service[1].currentContainerNum" class="valueDown">&nbsp;↓</span></td>
+						<td>{{service[0].currentContainerNum - service[1].currentContainerNum}}</td>
+						<td>{{service[0].initContainerNum}}-{{service[0].maxContainerNum}}</td>
+					</tr>
+					</template>
+					</tbody>	
+				</table>
+			</div>
+		</div>
+		<div class="page02_middle">
+			<div class="box08">
+				<h2>
+					<img src="images/title07.png" />
+				</h2>
+				<div class="layui-carousel" id="api1" style="width: 100%; height: 100%;position: relative;">
+  				<div carousel-item="" style="width: 100%; height: 100%;">
+  				<div v-for="array in apiTable['互联网中心']">
+				<table width="520" border="0" class="table02">
+					<tr>
+						<th scope="col" style="width: 250px;">名称</th>
+						<th scope="col" >吞吐量(次/分)</th>
+						<th scope="col" >成功(%)</th>
+						<th scope="col"  >时长(ms)</th>
+					</tr>
+					
+					
+					<template v-for="api in array">
+					<tr>
+						<td >{{api[0].cnname}}</td>
+						<td>{{api[0].req}}</td>
+						<td>{{api[0].success}}</td>
+						<td>{{api[0].avgrespontime}}<span v-if="api[0].avgrespontime>api[1].avgrespontime" class="valueUp">&nbsp;↑</span><span v-if="api[0].avgrespontime<api[1].avgrespontime" class="valueDown">&nbsp;↓</span></td>
+					</tr>
+					</template>				
+					
+				</table>
+				</div>
+				</div>
+				</div>
+			</div>
+
+			<div class="box08">
+				<h2>
+					<img src="images/title07.png" />
+				</h2>
+				<div class="layui-carousel" id="api2" style="width: 100%; height: 100%;">
+  				<div carousel-item="" style="width: 100%; height: 100%;">
+				<div v-for="array in apiTable['客户资料中心']">
+				<table width="520" border="0" class="table02">
+					<tr>
+						<th scope="col" style="width: 250px;">名称</th>
+						<th scope="col" >吞吐量(次/分)</th>
+						<th scope="col" >成功(%)</th>
+						<th scope="col"  >时长(ms)</th>
+					</tr>
+					
+					
+					<template v-for="api in array">
+					<tr>
+						<td >{{api[0].cnname}}</td>
+						<td>{{api[0].req}}</td>
+						<td>{{api[0].success}}</td>
+						<td>{{api[0].avgrespontime}}<span v-if="api[0].avgrespontime>api[1].avgrespontime" class="valueUp">&nbsp;↑</span><span v-if="api[0].avgrespontime<api[1].avgrespontime" class="valueDown">&nbsp;↓</span></td>
+					</tr>
+					</template>				
+					
+				</table>
+				</div>
+				</div>
+				</div>
+			</div>
+			<div class="box08">
+				<h2>
+					<img src="images/title07.png" />
+				</h2>
+				<div class="layui-carousel" id="api3" style="width: 100%; height: 100%;">
+  				<div carousel-item="" style="width: 100%; height: 100%;">
+  				<div v-for="array in apiTable['产商品中心']">
+				<table width="520" border="0" class="table02">
+					<tr>
+						<th scope="col" style="width: 250px;">名称</th>
+						<th scope="col" >吞吐量(次/分)</th>
+						<th scope="col" >成功(%)</th>
+						<th scope="col"  >时长(ms)</th>
+					</tr>
+					
+					
+					<template v-for="api in array">
+					<tr>
+						<td >{{api[0].cnname}}</td>
+						<td>{{api[0].req}}</td>
+						<td>{{api[0].success}}</td>
+						<td>{{api[0].avgrespontime}}<span v-if="api[0].avgrespontime>api[1].avgrespontime" class="valueUp">&nbsp;↑</span><span v-if="api[0].avgrespontime<api[1].avgrespontime" class="valueDown">&nbsp;↓</span></td>
+					</tr>
+					</template>				
+					
+				</table>
+				</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var centerMicroserviceApiInfosApp = new Vue({
+		el:"#centerMicroserviceApiInfosApp",
+		data:{
+			centerMicroserviceApiInfos:'',
+			apiTable:new Object(),
+		},
+		mounted(){
+			this.$nextTick(() => {
+	            setInterval(this.getFrontCenterMicroserviceApiInfos, 5000);
+	        })
+		},
+		methods:{
+			getFrontCenterMicroserviceApiInfos(){
+				$.get(addParamTime("/demo/getFrontCenterMicroserviceApiInfos"),function(data){
+					centerMicroserviceApiInfosApp.centerMicroserviceApiInfos = data; 
+					var apiTable = new Object();
+					for(var center in data){
+						var all = new Array();
+						for(var key in data[center].apis){
+							all.push(data[center].apis[key]);
+						}
+						var size = 5;
+						var page = Math.ceil(all.length/size);
+						var pageArray = new Array();
+						for(var i = 0;i < page;i++){
+							var array = new Array();
+							for(var j = 0;j < size;j++){
+								if(all[i*size+j]){
+									array.push(all[i*size+j]);
+								}
+							}
+							pageArray.push(array);
+						}
+						centerMicroserviceApiInfosApp.apiTable[center] = pageArray;
+					}
+				});
+			}
+		}
+	});
+
+	$(function() {
+		
+		
+		//创建仪表盘
+		var ybps = $(".ybp");
+		for(var i = 0;i < ybps.length;i++){
+			createYbp(ybps[i].id);
+		}
+		
+		var ybps2 = $(".ybp2");
+		for(var i = 0;i < ybps2.length;i++){
+			var ybp2 = $(ybps2[i]);
+			createYbp2(ybps2[i].id,ybps2);
+		}
+		
+
+		var zxtDynamics = $(".zxtDynamic");
+		for(var i = 0;i< zxtDynamics.length;i++){
+			var zxtDynamic = $(zxtDynamics[i]);
+			createZxtDynamic(zxtDynamics[i].id,zxtDynamic);
+		}
+		
+		setTimeout(
+			    function(){
+			    	layui.use('carousel', function(){
+						  var carousel = layui.carousel;
+						  //建造实例
+						  carousel.render({
+						    elem: '#api1'
+						    ,width: '95%' //设置容器宽度
+						    ,height:'230px'
+						    ,interval: 5000
+						    
+						  });
+						  carousel.render({
+							    elem: '#api2'
+							    ,width: '95%' //设置容器宽度
+							    ,height:'230px'
+							    ,interval: 5000
+							    
+							  });
+						  carousel.render({
+							    elem: '#api3'
+							    ,width: '95%' //设置容器宽度
+							    ,height:'230px'
+							    ,interval: 5000
+							    
+							  });
+						});
+			    	
+			    },10000
+		);
+		
+	});
+
+	
+</script>
+<script src="layui/layui.js"></script>
+</html>

@@ -1,0 +1,1347 @@
+[
+  {
+    "mainAPIs": [
+      {
+        "channelApis": "activity_service_prize_getDrawResult",
+        "cnname": "抽奖结果接口",
+        "name": "activity_service_prize_getDrawResult"
+      },
+      {
+        "channelApis": "activity_service_login_login",
+        "cnname": "登录",
+        "name": "activity_service_login_login"
+      },
+      {
+        "channelApis": "activity_service_prize_getCollection",
+        "cnname": "获取奖品",
+        "name": "activity_service_prize_getCollection"
+      },
+      {
+        "channelApis": "payment_service_order_createOrder ",
+        "cnname": "创建订单",
+        "name": "payment_service_order_createOrder "
+      },
+      {
+        "channelApis": "payment_service_order_refundOrder ",
+        "cnname": "退款",
+        "name": "payment_service_order_refundOrder "
+      },
+      {
+        "channelApis": "activity_service_luckyDraw_selectOne",
+        "cnname": "获取单个数据",
+        "name": "activity_service_luckyDraw_selectOne"
+      },
+      {
+        "channelApis": "activity_service_drawRecord_getWinningList",
+        "cnname": "获取中奖用户",
+        "name": "activity_service_drawRecord_getWinningList"
+      },
+      {
+        "channelApis": "activity_service_luckyDraw_getDrawNum",
+        "cnname": "查询抽奖机会",
+        "name": "activity_service_luckyDraw_getDrawNum"
+      },
+      {
+        "channelApis": "payment_service_pay_callbackPay",
+        "cnname": "支付回调",
+        "name": "payment_service_pay_callbackPay"
+      },
+      {
+        "channelApis": "payment_service_pay_hfzfSumbit",
+        "cnname": "话费支付",
+        "name": "payment_service_pay_hfzfSumbit"
+      }
+    ],
+    "mainMicroServiceCnNames": "能力编排外部服务,统一支付服务,用户服务,能力编排服务,活动服务",
+    "mainMicroServices": "ability-service-intf,payment-service,user-service,ability-service,activity-service",
+    "microServices": [
+      {
+        "channels": [
+          {
+            "cnname": "互联网中心-能力编排外部服务",
+            "name": "ability-service-intf",
+            "initContainerNum": 6,
+            "maxContainerNum": 12
+          }
+        ],
+        "cnname": "能力编排外部服务",
+        "name": "ability-service-intf"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "互联网中心-支付服务",
+            "name": "pay-service",
+            "initContainerNum": 2,
+            "maxContainerNum": 3
+          }
+        ],
+        "cnname": "支付服务",
+        "name": "pay-service"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "互联网中心-用户服务",
+            "name": "user-service",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          }
+        ],
+        "cnname": "用户服务",
+        "name": "user-service"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "互联网中心-活动服务",
+            "name": "activity-service",
+            "initContainerNum": 6,
+            "maxContainerNum": 8
+          }
+        ],
+        "cnname": "活动服务",
+        "name": "activity-service"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "互联网中心-商品服务",
+            "name": "goods-service",
+            "initContainerNum": 2,
+            "maxContainerNum": 3
+          }
+        ],
+        "cnname": "商品服务",
+        "name": "goods-service"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "互联网中心-运营服务",
+            "name": "report-service",
+            "initContainerNum": 2,
+            "maxContainerNum": 3
+          }
+        ],
+        "cnname": "运营服务",
+        "name": "report-service"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "互联网中心-商户服务",
+            "name": "merchant-service",
+            "initContainerNum": 2,
+            "maxContainerNum": 3
+          }
+        ],
+        "cnname": "商户服务",
+        "name": "merchant-service"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "互联网中心-物流服务",
+            "name": "logistics-service",
+            "initContainerNum": 2,
+            "maxContainerNum": 3
+          }
+        ],
+        "cnname": "物流服务",
+        "name": "logistics-service"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "互联网中心-订单服务",
+            "name": "order-service",
+            "initContainerNum": 2,
+            "maxContainerNum": 3
+          }
+        ],
+        "cnname": "订单服务",
+        "name": "order-service"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "互联网中心-消息服务",
+            "name": "message-service",
+            "initContainerNum": 2,
+            "maxContainerNum": 3
+          }
+        ],
+        "cnname": "消息服务",
+        "name": "message-service"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "互联网中心-内容服务",
+            "name": "content-service",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          }
+        ],
+        "cnname": "内容服务",
+        "name": "content-service"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "互联网中心-统一支付服务",
+            "name": "payment-service",
+            "initContainerNum": 2,
+            "maxContainerNum": 3
+          }
+        ],
+        "cnname": "统一支付服务",
+        "name": "payment-service"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "互联网中心-能力编排服务",
+            "name": "ability-service",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          }
+        ],
+        "cnname": "能力编排服务",
+        "name": "ability-service"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "dds-service",
+            "name": "dds-service",
+            "initContainerNum": 3,
+            "maxContainerNum": 10
+          }
+        ],
+        "cnname": "dds-service",
+        "name": "dds-service"
+      }
+    ],
+    "name": "互联网中心"
+  },
+  {
+    "mainAPIs": [
+      {
+        "channelApis": "opc_core_microservice_order_commonOrderCommitX,",
+        "cnname": "订单提交",
+        "name": "opc_core_microservice_order_commonOrderCommitX"
+      },
+      {
+        "channelApis": "opc_core_microservice_order_orderDeal,",
+        "cnname": "订单处理",
+        "name": "opc_core_microservice_order_orderDeal"
+      },
+      {
+        "channelApis": "opc_core_microservice_payment_payBack,",
+        "cnname": "支付接果反馈",
+        "name": "opc_core_microservice_payment_payBack"
+      },
+      {
+        "channelApis": "opc_core_microservice_payment_refundBack,",
+        "cnname": "退款结果反馈",
+        "name": "opc_core_microservice_payment_refundBack"
+      },
+      {
+        "channelApis": "opc_core_microservice_suborder_deal,",
+        "cnname": "子订单执行",
+        "name": "opc_core_microservice_suborder_deal"
+      },
+      {
+        "channelApis": "opc_shoppingcart_microservice_shoppingcart_cartItemAdd,",
+        "cnname": "购物车加入",
+        "name": "opc_shoppingcart_microservice_shoppingcart_cartItemAdd"
+      },
+      {
+        "channelApis": "opc_core_microservice_operation_opFeedback,",
+        "cnname": "工单执行反馈",
+        "name": "opc_core_microservice_operation_opFeedback"
+      },
+      {
+        "channelApis": "opc_manage_microservice_order_basicOrderQry,",
+        "cnname": "子订单基本信息查询",
+        "name": "opc_manage_microservice_order_basicOrderQry"
+      },
+      {
+        "channelApis": "opc_core_microservice_order_offlineOrderCommit,",
+        "cnname": "线下订单提交",
+        "name": "opc_core_microservice_order_offlineOrderCommit"
+      },
+      {
+        "channelApis": "opc_core_microservice_order_onlineOrderCommit",
+        "cnname": "线上订单提交",
+        "name": "opc_core_microservice_order_onlineOrderCommit"
+      }
+    ],
+    "mainMicroServiceCnNames": "订单核心,订单管理,购物车管理,订单监控,订单中心（容器化）",
+    "mainMicroServices": "opc-core-microservice,opc-manage-microservice,opc-shoppingcart-microservice,opc-monitor-microservice,opc-microservice",
+    "microServices": [
+      {
+        "channels": [
+          {
+            "cnname": "订单中心-订单核心",
+            "name": "opc-core-microservice",
+            "initContainerNum": 10,
+            "maxContainerNum": 18
+          }
+        ],
+        "cnname": "订单核心",
+        "name": "opc-core-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "订单中心-订单管理",
+            "name": "opc-manage-microservice",
+            "initContainerNum": 8,
+            "maxContainerNum": 13
+          }
+        ],
+        "cnname": "订单管理",
+        "name": "opc-manage-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "订单中心-购物车管理",
+            "name": "opc-shoppingcart-microservice",
+            "initContainerNum": 3,
+            "maxContainerNum": 7
+          }
+        ],
+        "cnname": "购物车管理",
+        "name": "opc-shoppingcart-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "订单中心-订单监控",
+            "name": "opc-monitor-microservice",
+            "initContainerNum": 0,
+            "maxContainerNum": 0
+          }
+        ],
+        "cnname": "订单监控",
+        "name": "opc-monitor-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "订单中心（容器化）",
+            "name": "opc-microservice",
+            "initContainerNum": 6,
+            "maxContainerNum": 12
+          }
+        ],
+        "cnname": "订单中心（容器化）",
+        "name": "opc-microservice"
+      }
+    ],
+    "name": "订单中心"
+  },
+  {
+    "mainAPIs": [
+      {
+        "channelApis": "bac_ib_microservice_inet_bill_service_queryXmlBillUnifiedService,bac_ib_microservice_hx_bill_service_queryXmlBillUnifiedService,bac_ib_microservice_csp_bill_service_queryXmlBillUnifiedService,bac_ib_microservice_1bs_bill_service_queryXmlBillUnifiedService,bac_ib_microservice_ht_bill_service_queryXmlBillUnifiedService,bac_ib_microservice_web_bill_service_queryXmlBillUnifiedService,bac_ib_microservice_ds_bill_service_queryXmlBillUnifiedService,bac_ib_microservice_iotht_bill_service_queryXmlBillUnifiedService,bac_ib_microservice_iotss_bill_service_queryXmlBillUnifiedService,bac_ib_microservice_grey_bill_service_queryXmlBillUnifiedService,",
+        "cnname": "计费综合查询服务",
+        "name": "bac_ib_microservice_xx_bill_service_queryXmlBillUnifiedService"
+      },
+      {
+        "channelApis": "bac_ib_microservice_inet_bill_service_queryUserAllSumInfo,bac_ib_microservice_hx_bill_service_queryUserAllSumInfo,bac_ib_microservice_csp_bill_service_queryUserAllSumInfo,bac_ib_microservice_1bs_bill_service_queryUserAllSumInfo,bac_ib_microservice_ht_bill_service_queryUserAllSumInfo,bac_ib_microservice_web_bill_service_queryUserAllSumInfo,bac_ib_microservice_ds_bill_service_queryUserAllSumInfo,bac_ib_microservice_iotht_bill_service_queryUserAllSumInfo,bac_ib_microservice_iotss_bill_service_queryUserAllSumInfo,bac_ib_microservice_grey_bill_service_queryUserAllSumInfo,",
+        "cnname": "用户套餐统一查询",
+        "name": "bac_ib_microservice_xx_bill_service_queryUserAllSumInfo"
+      },
+      {
+        "channelApis": "bac_ib_microservice_inet_bill_service_queryM2MSumInfo,bac_ib_microservice_hx_bill_service_queryM2MSumInfo,bac_ib_microservice_csp_bill_service_queryM2MSumInfo,bac_ib_microservice_1bs_bill_service_queryM2MSumInfo,bac_ib_microservice_ht_bill_service_queryM2MSumInfo,bac_ib_microservice_web_bill_service_queryM2MSumInfo,bac_ib_microservice_ds_bill_service_queryM2MSumInfo,bac_ib_microservice_iotht_bill_service_queryM2MSumInfo,bac_ib_microservice_iotss_bill_service_queryM2MSumInfo,bac_ib_microservice_grey_bill_service_queryM2MSumInfo,",
+        "cnname": "M2M卡套餐流量查询",
+        "name": "bac_ib_microservice_xx_bill_service_queryM2MSumInfo"
+      },
+      {
+        "channelApis": "bac_ib_microservice_inet_bill_service_queryUserSumInfo,bac_ib_microservice_hx_bill_service_queryUserSumInfo,bac_ib_microservice_csp_bill_service_queryUserSumInfo,bac_ib_microservice_1bs_bill_service_queryUserSumInfo,bac_ib_microservice_ht_bill_service_queryUserSumInfo,bac_ib_microservice_web_bill_service_queryUserSumInfo,bac_ib_microservice_ds_bill_service_queryUserSumInfo,bac_ib_microservice_iotht_bill_service_queryUserSumInfo,bac_ib_microservice_iotss_bill_service_queryUserSumInfo,bac_ib_microservice_grey_bill_service_queryUserSumInfo,",
+        "cnname": "套餐已使用分钟数查询",
+        "name": "bac_ib_microservice_xx_bill_service_queryUserSumInfo"
+      },
+      {
+        "channelApis": "bac_ib_microservice_inet_bill_service_queryXmlGprsBagSumInfoService,bac_ib_microservice_hx_bill_service_queryXmlGprsBagSumInfoService,bac_ib_microservice_csp_bill_service_queryXmlGprsBagSumInfoService,bac_ib_microservice_1bs_bill_service_queryXmlGprsBagSumInfoService,bac_ib_microservice_ht_bill_service_queryXmlGprsBagSumInfoService,bac_ib_microservice_web_bill_service_queryXmlGprsBagSumInfoService,bac_ib_microservice_ds_bill_service_queryXmlGprsBagSumInfoService,bac_ib_microservice_iotht_bill_service_queryXmlGprsBagSumInfoService,bac_ib_microservice_iotss,bac_ib_microservice_grey_bill_service_queryXmlGprsBagSumInfoService,",
+        "cnname": "GPRS包时间段使用流量查询",
+        "name": "bac_ib_microservice_xx_bill_service_queryXmlGprsBagSumInfoService"
+      },
+      {
+        "channelApis": "bac_ib_microservice_inet_bill_service_queryGprsUserSumInfo,bac_ib_microservice_hx_bill_service_queryGprsUserSumInfo,bac_ib_microservice_csp_bill_service_queryGprsUserSumInfo,bac_ib_microservice_1bs_bill_service_queryGprsUserSumInfo,bac_ib_microservice_ht_bill_service_queryGprsUserSumInfo,bac_ib_microservice_web_bill_service_queryGprsUserSumInfo,bac_ib_microservice_ds_bill_service_queryGprsUserSumInfo,bac_ib_microservice_iotht_bill_service_queryGprsUserSumInfo,bac_ib_microservice_iotss_bill_service_queryGprsUserSumInfo,bac_ib_microservice_grey_bill_service_queryGprsUserSumInfo,",
+        "cnname": "GPRS使用流量和标准流量查询",
+        "name": "bac_ib_microservice_xx_bill_service_queryGprsUserSumInfo"
+      },
+      {
+        "channelApis": "bac_ib_microservice_inet_bill_service_queryUserGprsFlow,bac_ib_microservice_hx_bill_service_queryUserGprsFlow,bac_ib_microservice_csp_bill_service_queryUserGprsFlow,bac_ib_microservice_1bs_bill_service_queryUserGprsFlow,bac_ib_microservice_ht_bill_service_queryUserGprsFlow,bac_ib_microservice_web_bill_service_queryUserGprsFlow,bac_ib_microservice_ds_bill_service_queryUserGprsFlow,bac_ib_microservice_iotht_bill_service_queryUserGprsFlow,bac_ib_microservice_iotss_bill_service_queryUserGprsFlow,bac_ib_microservice_grey_bill_service_queryUserGprsFlow,",
+        "cnname": "内容累计客户端查询",
+        "name": "bac_ib_microservice_xx_bill_service_queryUserGprsFlow"
+      },
+      {
+        "channelApis": "bac_prefab_microservice_inet_prefab_prefabEngine,bac_prefab_microservice_hx_prefab_prefabEngine,bac_prefab_microservice_csp_prefab_prefabEngine,bac_prefab_microservice_1bs_prefab_prefabEngine,bac_prefab_microservice_ht_prefab_prefabEngine,bac_prefab_microservice_web_prefab_prefabEngine,bac_prefab_microservice_ds_prefab_prefabEngine,bac_prefab_microservice_iotht_prefab_prefabEngine,bac_prefab_microservice_iotss_prefab_prefabEngine,bac_prefab_microservice_grey_prefab_prefabEngine,",
+        "cnname": "客户消费积分余额查询",
+        "name": "bac_prefab_microservice_xx_prefab_prefabEngine"
+      },
+      {
+        "channelApis": "bac_prefab_microservice_inet_prefab_prefabEngine2,bac_prefab_microservice_hx_prefab_prefabEngine2,bac_prefab_microservice_csp_prefab_prefabEngine2,bac_prefab_microservice_1bs_prefab_prefabEngine2,bac_prefab_microservice_ht_prefab_prefabEngine2,bac_prefab_microservice_web_prefab_prefabEngine2,bac_prefab_microservice_ds_prefab_prefabEngine2,bac_prefab_microservice_iotht_prefab_prefabEngine2,bac_prefab_microservice_iotss_prefab_prefabEngine2,bac_prefab_microservice_grey_prefab_prefabEngine2,",
+        "cnname": "用户信用度查询",
+        "name": "bac_prefab_microservice_xx_prefab_prefabEngine2"
+      },
+      {
+        "channelApis": "bac_ia_account_microservice_inet_account_relation_umPayTransQueryAccountInfo,bac_ia_account_microservice_hx_account_relation_umPayTransQueryAccountInfo,bac_ia_account_microservice_csp_account_relation_umPayTransQueryAccountInfo,bac_ia_account_microservice_1bs_account_relation_umPayTransQueryAccountInfo,bac_ia_account_microservice_ht_account_relation_umPayTransQueryAccountInfo,bac_ia_account_microservice_web_account_relation_umPayTransQueryAccountInfo,bac_ia_account_microservice_ds_account_relation_umPayTransQueryAccountInfo,bac_ia_account_microservice_iotht_account_relation_umPayTransQueryAccountInfo,bac_ia_account_microservice_iotss_account_relation_umPayTransQueryAccountInfo,bac_ia_account_microservice_grey_account_relation_umPayTransQueryAccountInfo,",
+        "cnname": "话费支付帐务信息查询",
+        "name": "bac_ia_account_microservice_xx_account_relation_umPayTransQueryAccountInfo"
+      }
+    ],
+    "mainMicroServiceCnNames": "计费查询,计帐预制,帐务,帐单,计帐组合",
+    "mainMicroServices": "bac-ib-microservice,bac-prefab-microservice,bac-ia-account-microservice,bac-ia-bill-microservice,biz-bac-sfdl-microservice",
+    "microServices": [
+      {
+        "channels": [
+          {
+            "cnname": "计费账务中心-计费查询-互联网通道",
+            "name": "bac-ib-microservice-inet",
+            "initContainerNum": 20,
+            "maxContainerNum": 25
+          },
+          {
+            "cnname": "计费账务中心-计费查询-核心通道",
+            "name": "bac-ib-microservice-hx",
+            "initContainerNum": 10,
+            "maxContainerNum": 15
+          },
+          {
+            "cnname": "计费账务中心-计费查询-客服通道",
+            "name": "bac-ib-microservice-csp",
+            "initContainerNum": 5,
+            "maxContainerNum": 8
+          },
+          {
+            "cnname": "计费账务中心-计费查询-一级BOSS通道",
+            "name": "bac-ib-microservice-1bs",
+            "initContainerNum": 7,
+            "maxContainerNum": 9
+          },
+          {
+            "cnname": "计费账务中心-计费查询-后台通道",
+            "name": "bac-ib-microservice-ht",
+            "initContainerNum": 4,
+            "maxContainerNum": 5
+          },
+          {
+            "cnname": "计费账务中心-计费查询-营业厅通道",
+            "name": "bac-ib-microservice-web",
+            "initContainerNum": 5,
+            "maxContainerNum": 7
+          },
+          {
+            "cnname": "计费账务中心-计费查询-地市批量通道",
+            "name": "bac-ib-microservice-ds",
+            "initContainerNum": 3,
+            "maxContainerNum": 4
+          },
+          {
+            "cnname": "计费账务中心-计费查询-物联网后台",
+            "name": "bac-ib-microservice-iotht",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-计费查询-物联网受理",
+            "name": "bac-ib-microservice-iotss",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-计费查询-灰度通道",
+            "name": "bac-ib-microservice-grey",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          }
+        ],
+        "cnname": "计费查询微服务",
+        "name": "bac-ib-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "计费账务中心-计账预制-互联网通道",
+            "name": "bac-prefab-microservice-inet",
+            "initContainerNum": 3,
+            "maxContainerNum": 4
+          },
+          {
+            "cnname": "计费账务中心-计账预制-核心通道",
+            "name": "bac-prefab-microservice-hx",
+            "initContainerNum": 4,
+            "maxContainerNum": 5
+          },
+          {
+            "cnname": "计费账务中心-计账预制-客服通道",
+            "name": "bac-prefab-microservice-csp",
+            "initContainerNum": 4,
+            "maxContainerNum": 5
+          },
+          {
+            "cnname": "计费账务中心-计账预制-一级BOSS通道",
+            "name": "bac-prefab-microservice-1bs",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-计账预制-后台通道",
+            "name": "bac-prefab-microservice-ht",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-计账预制-营业厅通道",
+            "name": "bac-prefab-microservice-web",
+            "initContainerNum": 2,
+            "maxContainerNum": 3
+          },
+          {
+            "cnname": "计费账务中心-计账预制-地市批量通道",
+            "name": "bac-prefab-microservice-ds",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-计账预制-物联网后台",
+            "name": "bac-prefab-microservice-iotht",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-计账预制-物联网受理",
+            "name": "bac-prefab-microservice-iotss",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-计账预制-灰度通道",
+            "name": "bac-prefab-microservice-grey",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          }
+        ],
+        "cnname": "计帐预制查询",
+        "name": "bac-prefab-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "计费账务中心-账务-互联网通道",
+            "name": "bac-ia-account-microservice-inet",
+            "initContainerNum": 6,
+            "maxContainerNum": 7
+          },
+          {
+            "cnname": "计费账务中心-账务-核心通道",
+            "name": "bac-ia-account-microservice-hx",
+            "initContainerNum": 6,
+            "maxContainerNum": 7
+          },
+          {
+            "cnname": "计费账务中心-账务-客服通道",
+            "name": "bac-ia-account-microservice-csp",
+            "initContainerNum": 6,
+            "maxContainerNum": 7
+          },
+          {
+            "cnname": "计费账务中心-账务-一级BOSS通道",
+            "name": "bac-ia-account-microservice-1bs",
+            "initContainerNum": 5,
+            "maxContainerNum": 6
+          },
+          {
+            "cnname": "计费账务中心-账务-后台通道",
+            "name": "bac-ia-account-microservice-ht",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-账务-营业厅通道",
+            "name": "bac-ia-account-microservice-web",
+            "initContainerNum": 2,
+            "maxContainerNum": 3
+          },
+          {
+            "cnname": "计费账务中心-账务-地市批量通道",
+            "name": "bac-ia-account-microservice-ds",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-账务-物联网后台",
+            "name": "bac-ia-account-microservice-iotht",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-账务-物联网受理",
+            "name": "bac-ia-account-microservice-iotss",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-账务-灰度通道",
+            "name": "bac-ia-account-microservice-grey",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          }
+        ],
+        "cnname": "帐务微服务",
+        "name": "bac-ia-account-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "计费账务中心-账单-互联网通道",
+            "name": "bac-ia-bill-microservice-inet",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-账单-核心通道",
+            "name": "bac-ia-bill-microservice-hx",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-账单-客服通道",
+            "name": "bac-ia-bill-microservice-csp",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-账单-一级BOSS通道",
+            "name": "bac-ia-bill-microservice-1bs",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-账单-后台通道",
+            "name": "bac-ia-bill-microservice-ht",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-账单-营业厅通道",
+            "name": "bac-ia-bill-microservice-web",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-账单-地市批量通道",
+            "name": "bac-ia-bill-microservice-ds",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-账单-物联网后台",
+            "name": "bac-ia-bill-microservice-iotht",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-账单-物联网受理",
+            "name": "bac-ia-bill-microservice-iotss",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-账单-灰度通道",
+            "name": "bac-ia-bill-microservice-grey",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          }
+        ],
+        "cnname": "帐单微服务",
+        "name": "bac-ia-bill-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "计费账务中心-计帐组合-互联网通道",
+            "name": "biz-bac-sfdl-microservice-inet",
+            "initContainerNum": 12,
+            "maxContainerNum": 15
+          },
+          {
+            "cnname": "计费账务中心-计帐组合-核心通道",
+            "name": "biz-bac-sfdl-microservice-hx",
+            "initContainerNum": 6,
+            "maxContainerNum": 7
+          },
+          {
+            "cnname": "计费账务中心-计帐组合-客服通道",
+            "name": "biz-bac-sfdl-microservice-csp",
+            "initContainerNum": 5,
+            "maxContainerNum": 6
+          },
+          {
+            "cnname": "计费账务中心-计帐组合-一级BOSS通道",
+            "name": "biz-bac-sfdl-microservice-1bs",
+            "initContainerNum": 5,
+            "maxContainerNum": 7
+          },
+          {
+            "cnname": "计费账务中心-计帐组合-后台通道",
+            "name": "biz-bac-sfdl-microservice-ht",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-计帐组合-营业厅通道",
+            "name": "biz-bac-sfdl-microservice-web",
+            "initContainerNum": 2,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-计帐组合-地市批量通道",
+            "name": "biz-bac-sfdl-microservice-ds",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-计帐组合-物联网后台",
+            "name": "biz-bac-sfdl-microservice-iotht",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-计帐组合-物联网受理",
+            "name": "biz-bac-sfdl-microservice-iotss",
+            "initContainerNum": 1,
+            "maxContainerNum": 2
+          },
+          {
+            "cnname": "计费账务中心-计帐组合-灰度通道",
+            "name": "biz-bac-sfdl-microservice-grey",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          }
+        ],
+        "cnname": "计帐组合微服务",
+        "name": "biz-bac-sfdl-microservice"
+      }
+    ],
+    "name": "计费账务中心"
+  },
+  {
+    "mainAPIs": [
+      {
+        "channelApis": "cmc_cdm_microservice_inet_user_info_queryHomeCityByMsisdn,cmc_cdm_microservice_hx_user_info_queryHomeCityByMsisdn,cmc_cdm_microservice_csp_user_info_queryHomeCityByMsisdn,cmc_cdm_microservice_1bs_user_info_queryHomeCityByMsisdn,cmc_cdm_microservice_ht_user_info_queryHomeCityByMsisdn,cmc_cdm_microservice_web_user_info_queryHomeCityByMsisdn,cmc_cdm_microservice_ds_user_info_queryHomeCityByMsisdn,cmc_cdm_microservice_iotht_user_info_queryHomeCityByMsisdn,cmc_cdm_microservice_iotss_user_info_queryHomeCityByMsisdn,cmc_cdm_microservice_grey_user_info_queryHomeCityByMsisdn,",
+        "cnname": "根据用户号码查询归属地市",
+        "name": "cmc_cdm_microservice_xx_user_info_queryHomeCityByMsisdn"
+      },
+      {
+        "channelApis": "cmc_cdm_microservice_inet_user_info_queryUserBaseInfo,cmc_cdm_microservice_hx_user_info_queryUserBaseInfo,cmc_cdm_microservice_csp_user_info_queryUserBaseInfo,cmc_cdm_microservice_1bs_user_info_queryUserBaseInfo,cmc_cdm_microservice_ht_user_info_queryUserBaseInfo,cmc_cdm_microservice_web_user_info_queryUserBaseInfo,cmc_cdm_microservice_ds_user_info_queryUserBaseInfo,cmc_cdm_microservice_iotht_user_info_queryUserBaseInfo,cmc_cdm_microservice_iotss_user_info_queryUserBaseInfo,cmc_cdm_microservice_grey_user_info_queryUserBaseInfo,",
+        "cnname": "用户基本信息查询",
+        "name": "cmc_cdm_microservice_xx_user_info_queryUserBaseInfo"
+      },
+      {
+        "channelApis": "cmc_cdm_microservice_inet_customer_info_calculateArchivesFlag,cmc_cdm_microservice_hx_customer_info_calculateArchivesFlag,cmc_cdm_microservice_csp_customer_info_calculateArchivesFlag,cmc_cdm_microservice_1bs_customer_info_calculateArchivesFlag,cmc_cdm_microservice_ht_customer_info_calculateArchivesFlag,cmc_cdm_microservice_web_customer_info_calculateArchivesFlag,cmc_cdm_microservice_ds_customer_info_calculateArchivesFlag,cmc_cdm_microservice_iotht_customer_info_calculateArchivesFlag,cmc_cdm_microservice_iotss_customer_info_calculateArchivesFlag,cmc_cdm_microservice_grey_customer_info_calculateArchivesFlag,",
+        "cnname": "新档案标识计算",
+        "name": "cmc_cdm_microservice_xx_customer_info_calculateArchivesFlag"
+      },
+      {
+        "channelApis": "cmc_cdm_microservice_inet_customer_info_isRealName,cmc_cdm_microservice_hx_customer_info_isRealName,cmc_cdm_microservice_csp_customer_info_isRealName,cmc_cdm_microservice_1bs_customer_info_isRealName,cmc_cdm_microservice_ht_customer_info_isRealName,cmc_cdm_microservice_web_customer_info_isRealName,cmc_cdm_microservice_ds_customer_info_isRealName,cmc_cdm_microservice_iotht_customer_info_isRealName,cmc_cdm_microservice_iotss_customer_info_isRealName,cmc_cdm_microservice_grey_customer_info_isRealName,",
+        "cnname": "是否实名制查询",
+        "name": "cmc_cdm_microservice_xx_customer_info_isRealName"
+      },
+      {
+        "channelApis": "cmc_csq_microservice_inet_broadband_info_queryBroadbandUserInfo,cmc_csq_microservice_hx_broadband_info_queryBroadbandUserInfo,cmc_csq_microservice_csp_broadband_info_queryBroadbandUserInfo,cmc_csq_microservice_1bs_broadband_info_queryBroadbandUserInfo,cmc_csq_microservice_ht_broadband_info_queryBroadbandUserInfo,cmc_csq_microservice_web_broadband_info_queryBroadbandUserInfo,cmc_csq_microservice_ds_broadband_info_queryBroadbandUserInfo,cmc_csq_microservice_iotht_broadband_info_queryBroadbandUserInfo,cmc_csq_microservice_iotss_broadband_info_queryBroadbandUserInfo,cmc_csq_microservice_grey_broadband_info_queryBroadbandUserInfo,",
+        "cnname": "宽带用户资料管理",
+        "name": "cmc_csq_microservice_xx_broadband_info_queryBroadbandUserInfo"
+      },
+      {
+        "channelApis": "cmc_csq_microservice_inet_team_customer_queryTeamCustomer,cmc_csq_microservice_hx_team_customer_queryTeamCustomer,cmc_csq_microservice_csp_team_customer_queryTeamCustomer,cmc_csq_microservice_1bs_team_customer_queryTeamCustomer,cmc_csq_microservice_ht_team_customer_queryTeamCustomer,cmc_csq_microservice_web_team_customer_queryTeamCustomer,cmc_csq_microservice_ds_team_customer_queryTeamCustomer,cmc_csq_microservice_iotht_team_customer_queryTeamCustomer,cmc_csq_microservice_iotss_team_customer_queryTeamCustomer,cmc_csq_microservice_grey_team_customer_queryTeamCustomer,",
+        "cnname": "群组客户信息查询",
+        "name": "cmc_csq_microservice_xx_team_customer_queryTeamCustomer"
+      },
+      {
+        "channelApis": "cmc_csq_microservice_inet_broadband_info_queryBroadbandUserForItv,cmc_csq_microservice_hx_broadband_info_queryBroadbandUserForItv,cmc_csq_microservice_csp_broadband_info_queryBroadbandUserForItv,cmc_csq_microservice_1bs_broadband_info_queryBroadbandUserForItv,cmc_csq_microservice_ht_broadband_info_queryBroadbandUserForItv,cmc_csq_microservice_web_broadband_info_queryBroadbandUserForItv,cmc_csq_microservice_ds_broadband_info_queryBroadbandUserForItv,cmc_csq_microservice_iotht_broadband_info_queryBroadbandUserForItv,cmc_csq_microservice_iotss_broadband_info_queryBroadbandUserForItv,cmc_csq_microservice_grey_broadband_info_queryBroadbandUserForItv,",
+        "cnname": "查询宽带账号列表(ITV)",
+        "name": "cmc_csq_microservice_xx_broadband_info_queryBroadbandUserForItv"
+      },
+      {
+        "channelApis": "cmc_csq_microservice_inet_user_info_queryUserNotifyInfo,cmc_csq_microservice_hx_user_info_queryUserNotifyInfo,cmc_csq_microservice_csp_user_info_queryUserNotifyInfo,cmc_csq_microservice_1bs_user_info_queryUserNotifyInfo,cmc_csq_microservice_ht_user_info_queryUserNotifyInfo,cmc_csq_microservice_web_user_info_queryUserNotifyInfo,cmc_csq_microservice_ds_user_info_queryUserNotifyInfo,cmc_csq_microservice_iotht_user_info_queryUserNotifyInfo,cmc_csq_microservice_iotss_user_info_queryUserNotifyInfo,cmc_csq_microservice_grey_user_info_queryUserNotifyInfo,",
+        "cnname": "用户提醒信息查询",
+        "name": "cmc_csq_microservice_xx_user_info_queryUserNotifyInfo"
+      },
+      {
+        "channelApis": "cmc_cbg_microservice_user_svc_feedBack,",
+        "cnname": "用户服务开通反馈接口",
+        "name": "cmc_cbg_microservice_user_svc_feedBack"
+      },
+      {
+        "channelApis": "cmc_cbg_microservice_user_svc_open,",
+        "cnname": "服务开通服务",
+        "name": "cmc_cbg_microservice_user_svc_open"
+      }
+    ],
+    "mainMicroServiceCnNames": "客户管理,共享查询,业务网关,客户组合",
+    "mainMicroServices": "cmc-cdm-microservice,cmc-csq-microservice,cmc-cbg-microservice,biz-cmc-sfdl-microservice",
+    "microServices": [
+      {
+        "channels": [
+          {
+            "cnname": "客户资料中心-客户管理-互联网通道",
+            "name": "cmc-cdm-microservice-inet",
+            "initContainerNum": 3,
+            "maxContainerNum": 6
+          },
+          {
+            "cnname": "客户资料中心-客户管理-核心通道",
+            "name": "cmc-cdm-microservice-hx",
+            "initContainerNum": 6,
+            "maxContainerNum": 14
+          },
+          {
+            "cnname": "客户资料中心-客户管理-客服通道",
+            "name": "cmc-cdm-microservice-csp",
+            "initContainerNum": 6,
+            "maxContainerNum": 14
+          },
+          {
+            "cnname": "客户资料中心-客户管理-一级BOSS通道",
+            "name": "cmc-cdm-microservice-1bs",
+            "initContainerNum": 6,
+            "maxContainerNum": 14
+          },
+          {
+            "cnname": "客户资料中心-客户管理-后台通道",
+            "name": "cmc-cdm-microservice-ht",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          },
+          {
+            "cnname": "客户资料中心-客户管理-营业厅通道",
+            "name": "cmc-cdm-microservice-web",
+            "initContainerNum": 3,
+            "maxContainerNum": 6
+          },
+          {
+            "cnname": "客户资料中心-客户管理-地市批量通道",
+            "name": "cmc-cdm-microservice-ds",
+            "initContainerNum": 3,
+            "maxContainerNum": 6
+          },
+          {
+            "cnname": "客户资料中心-客户管理-物联网后台",
+            "name": "cmc-cdm-microservice-iotht",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          },
+          {
+            "cnname": "客户资料中心-客户管理-物联网受理",
+            "name": "cmc-cdm-microservice-iotss",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          },
+          {
+            "cnname": "客户资料中心-客户管理-灰度通道",
+            "name": "cmc-cdm-microservice-grey",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          }
+        ],
+        "cnname": "客户管理微服务",
+        "name": "cmc-cdm-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "客户资料中心-共享查询-互联网通道",
+            "name": "cmc-csq-microservice-inet",
+            "initContainerNum": 4,
+            "maxContainerNum": 7
+          },
+          {
+            "cnname": "客户资料中心-共享查询-核心通道",
+            "name": "cmc-csq-microservice-hx",
+            "initContainerNum": 9,
+            "maxContainerNum": 16
+          },
+          {
+            "cnname": "客户资料中心-共享查询-客服通道",
+            "name": "cmc-csq-microservice-csp",
+            "initContainerNum": 9,
+            "maxContainerNum": 16
+          },
+          {
+            "cnname": "客户资料中心-共享查询-一级BOSS通道",
+            "name": "cmc-csq-microservice-1bs",
+            "initContainerNum": 9,
+            "maxContainerNum": 16
+          },
+          {
+            "cnname": "客户资料中心-共享查询-后台通道",
+            "name": "cmc-csq-microservice-ht",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          },
+          {
+            "cnname": "客户资料中心-共享查询-营业厅通道",
+            "name": "cmc-csq-microservice-web",
+            "initContainerNum": 4,
+            "maxContainerNum": 7
+          },
+          {
+            "cnname": "客户资料中心-共享查询-地市批量通道",
+            "name": "cmc-csq-microservice-ds",
+            "initContainerNum": 4,
+            "maxContainerNum": 7
+          },
+          {
+            "cnname": "客户资料中心-共享查询-物联网后台",
+            "name": "cmc-csq-microservice-iotht",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          },
+          {
+            "cnname": "客户资料中心-共享查询-物联网受理",
+            "name": "cmc-csq-microservice-iotss",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          },
+          {
+            "cnname": "客户资料中心-共享查询-灰度通道",
+            "name": "cmc-csq-microservice-grey",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          }
+        ],
+        "cnname": "共享查询微服务",
+        "name": "cmc-csq-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "客户资料中心-业务网关",
+            "name": "cmc-cbg-microservice",
+            "initContainerNum": 9,
+            "maxContainerNum": 12
+          }
+        ],
+        "cnname": "业务网关微服务",
+        "name": "cmc-cbg-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "客户资料中心-八闽家庭",
+            "name": "cmc-family-microservice",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          }
+        ],
+        "cnname": "八闽家庭微服务",
+        "name": "cmc-family-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "客户资料中心-客户组合-互联网通道",
+            "name": "biz-cmc-sfdl-microservice-inet",
+            "initContainerNum": 42,
+            "maxContainerNum": 56
+          },
+          {
+            "cnname": "客户资料中心-客户组合-核心通道",
+            "name": "biz-cmc-sfdl-microservice-hx",
+            "initContainerNum": 59,
+            "maxContainerNum": 79
+          },
+          {
+            "cnname": "客户资料中心-客户组合-客服通道",
+            "name": "biz-cmc-sfdl-microservice-csp",
+            "initContainerNum": 42,
+            "maxContainerNum": 56
+          },
+          {
+            "cnname": "客户资料中心-客户组合-一级BOSS通道",
+            "name": "biz-cmc-sfdl-microservice-1bs",
+            "initContainerNum": 39,
+            "maxContainerNum": 52
+          },
+          {
+            "cnname": "客户资料中心-客户组合-后台通道",
+            "name": "biz-cmc-sfdl-microservice-ht",
+            "initContainerNum": 4,
+            "maxContainerNum": 5
+          },
+          {
+            "cnname": "客户资料中心-客户组合-营业厅通道",
+            "name": "biz-cmc-sfdl-microservice-web",
+            "initContainerNum": 42,
+            "maxContainerNum": 56
+          },
+          {
+            "cnname": "客户资料中心-客户组合-地市批量通道",
+            "name": "biz-cmc-sfdl-microservice-ds",
+            "initContainerNum": 3,
+            "maxContainerNum": 4
+          },
+          {
+            "cnname": "客户资料中心-客户组合-物联网后台",
+            "name": "biz-cmc-sfdl-microservice-iotht",
+            "initContainerNum": 3,
+            "maxContainerNum": 4
+          },
+          {
+            "cnname": "客户资料中心-客户组合-物联网受理",
+            "name": "biz-cmc-sfdl-microservice-iotss",
+            "initContainerNum": 8,
+            "maxContainerNum": 10
+          },
+          {
+            "cnname": "客户资料中心-客户组合-灰度通道",
+            "name": "biz-cmc-sfdl-microservice-grey",
+            "initContainerNum": 3,
+            "maxContainerNum": 4
+          }
+        ],
+        "cnname": "客户组合微服务",
+        "name": "biz-cmc-sfdl-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "客户资料中心-融合查询",
+            "name": "cmc-composite-microservice",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          }
+        ],
+        "cnname": "融合查询微服务",
+        "name": "cmc-composite-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "客户中心（CMC容器化）",
+            "name": "cmc-microservice",
+            "initContainerNum": 16,
+            "maxContainerNum": 24
+          }
+        ],
+        "cnname": "客户中心（CMC容器化）",
+        "name": "cmc-microservice"
+      }
+    ],
+    "name": "客户资料中心"
+  },
+  {
+    "mainAPIs": [
+      {
+        "channelApis": "poc_check_microservice_inet_wysiwyg_check,poc_check_microservice_hx_wysiwyg_check,poc_check_microservice_csp_wysiwyg_check,poc_check_microservice_1bs_wysiwyg_check,poc_check_microservice_ht_wysiwyg_check,poc_check_microservice_web_wysiwyg_check,poc_check_microservice_ds_wysiwyg_check,poc_check_microservice_iotht_wysiwyg_check,poc_check_microservice_iotss_wysiwyg_check,poc_check_microservice_grey_wysiwyg_check,",
+        "cnname": "可见即可得",
+        "name": "poc_check_microservice_xx_wysiwyg_check"
+      },
+      {
+        "channelApis": "poc_check_microservice_inet_product_check,poc_check_microservice_hx_product_check,poc_check_microservice_csp_product_check,poc_check_microservice_1bs_product_check,poc_check_microservice_ht_product_check,poc_check_microservice_web_product_check,poc_check_microservice_ds_product_check,poc_check_microservice_iotht_product_check,poc_check_microservice_iotss_product_check,poc_check_microservice_grey_product_check,",
+        "cnname": "商品销售规则校验",
+        "name": "poc_check_microservice_xx_product_check"
+      },
+      {
+        "channelApis": "poc_check_microservice_inet_prefab_prefabEngine,poc_check_microservice_hx_prefab_prefabEngine,poc_check_microservice_csp_prefab_prefabEngine,poc_check_microservice_1bs_prefab_prefabEngine,poc_check_microservice_ht_prefab_prefabEngine,poc_check_microservice_web_prefab_prefabEngine,poc_check_microservice_ds_prefab_prefabEngine,poc_check_microservice_iotht_prefab_prefabEngine,poc_check_microservice_iotss_prefab_prefabEngine,poc_check_microservice_grey_prefab_prefabEngine,",
+        "cnname": "商品查询（预制）",
+        "name": "poc_check_microservice_xx_prefab_prefabEngine"
+      },
+      {
+        "channelApis": "poc_check_microservice_inet_product_base_getProductInfo,poc_check_microservice_hx_product_base_getProductInfo,poc_check_microservice_csp_product_base_getProductInfo,poc_check_microservice_1bs_product_base_getProductInfo,poc_check_microservice_ht_product_base_getProductInfo,poc_check_microservice_web_product_base_getProductInfo,poc_check_microservice_ds_product_base_getProductInfo,poc_check_microservice_iotht_product_base_getProductInfo,poc_check_microservice_iotss_product_base_getProductInfo,poc_check_microservice_grey_product_base_getProductInfo,",
+        "cnname": "产品明细信息查询",
+        "name": "poc_check_microservice_xx_product_base_getProductInfo"
+      },
+      {
+        "channelApis": "poc_check_microservice_inet_product_group_queryComboProductGroup,poc_check_microservice_hx_product_group_queryComboProductGroup,poc_check_microservice_csp_product_group_queryComboProductGroup,poc_check_microservice_1bs_product_group_queryComboProductGroup,poc_check_microservice_ht_product_group_queryComboProductGroup,poc_check_microservice_web_product_group_queryComboProductGroup,poc_check_microservice_ds_product_group_queryComboProductGroup,poc_check_microservice_iotht_product_group_queryComboProductGroup,poc_check_microservice_iotss_product_group_queryComboProductGroup,poc_check_microservice_grey_product_group_queryComboProductGroup,",
+        "cnname": "查询组合产品的分组信息",
+        "name": "poc_check_microservice_xx_product_group_queryComboProductGroup"
+      },
+      {
+        "channelApis": "poc_check_microservice_inet_product_group_queryComboProductList,poc_check_microservice_hx_product_group_queryComboProductList,poc_check_microservice_csp_product_group_queryComboProductList,poc_check_microservice_1bs_product_group_queryComboProductList,poc_check_microservice_ht_product_group_queryComboProductList,poc_check_microservice_web_product_group_queryComboProductList,poc_check_microservice_ds_product_group_queryComboProductList,poc_check_microservice_iotht_product_group_queryComboProductList,poc_check_microservice_iotss_product_group_queryComboProductList,poc_check_microservice_grey_product_group_queryComboProductList,",
+        "cnname": "查询组合产品信息",
+        "name": "poc_check_microservice_xx_product_group_queryComboProductList"
+      },
+      {
+        "channelApis": "poc_config_microservice_poc_ini_config_queryPocIniConfig,",
+        "cnname": "获取pociniconfig配置",
+        "name": "poc_config_microservice_poc_ini_config_queryPocIniConfig"
+      },
+      {
+        "channelApis": "poc_config_microservice_group_product_class_query_queryGroupProduct,",
+        "cnname": "集团商品大类查产品",
+        "name": "poc_config_microservice_group_product_class_query_queryGroupProduct"
+      },
+      {
+        "channelApis": "poc_config_microservice_group_product_class_tree_queryGroupProductClassTree,",
+        "cnname": "集团商品大类树查询",
+        "name": "poc_config_microservice_group_product_class_tree_queryGroupProductClassTree"
+      },
+      {
+        "channelApis": "poc_config_microservice_product_manage_generateProduct,",
+        "cnname": "商品基本信息服务",
+        "name": "poc_config_microservice_product_manage_generateProduct"
+      },
+      {
+        "channelApis": "poc_config_microservice_product_manage_updateProduct,",
+        "cnname": "商品信息修改服务",
+        "name": "poc_config_microservice_product_manage_updateProduct"
+      },
+      {
+        "channelApis": "poc_config_microservice_product_manage_deleteProduct,",
+        "cnname": "产商品商品失效",
+        "name": "poc_config_microservice_product_manage_deleteProduct"
+      },
+      {
+        "channelApis": "poc_check_microservice_inet_csc_product_query_queryProductRecommend,poc_check_microservice_hx_csc_product_query_queryProductRecommend,poc_check_microservice_csp_csc_product_query_queryProductRecommend,poc_check_microservice_1bs_csc_product_query_queryProductRecommend,poc_check_microservice_ht_csc_product_query_queryProductRecommend,poc_check_microservice_web_csc_product_query_queryProductRecommend,poc_check_microservice_ds_csc_product_query_queryProductRecommend,poc_check_microservice_iotht_csc_product_query_queryProductRecommend,poc_check_microservice_iotss_csc_product_query_queryProductRecommend,poc_check_microservice_grey_csc_product_query_queryProductRecommend,",
+        "cnname": "商品推荐查询",
+        "name": "poc_check_microservice_xx_csc_product_query_queryProductRecommend"
+      },
+      {
+        "channelApis": "poc_config_microservice_csc_product_manage_manageCPCProductInstance,",
+        "cnname": "CP产品商品实例化",
+        "name": "poc_config_microservice_csc_product_manage_manageCPCProductInstance"
+      },
+      {
+        "channelApis": "poc_config_microservice_csc_product_shelves_manage_manageCSCProductShelves,",
+        "cnname": "商品上下架",
+        "name": "poc_config_microservice_csc_product_shelves_manage_manageCSCProductShelves"
+      }
+    ],
+    "mainMicroServiceCnNames": "商品校验/查询微服务,商品资费管理微服务,商品配置及生命周期管理",
+    "mainMicroServices": "poc-check-microservice,poc-config-microservice,poc-rate-microservice",
+    "microServices": [
+      {
+        "channels": [
+          {
+            "cnname": "产商品中心-商品校验/查询-互联网通道",
+            "name": "poc-check-microservice-inet",
+            "initContainerNum": 3,
+            "maxContainerNum": 4
+          },
+          {
+            "cnname": "产商品中心-商品校验/查询-核心通道",
+            "name": "poc-check-microservice-hx",
+            "initContainerNum": 6,
+            "maxContainerNum": 8
+          },
+          {
+            "cnname": "产商品中心-商品校验/查询-客服通道",
+            "name": "poc-check-microservice-csp",
+            "initContainerNum": 6,
+            "maxContainerNum": 8
+          },
+          {
+            "cnname": "产商品中心-商品校验/查询-一级BOSS通道",
+            "name": "poc-check-microservice-1bs",
+            "initContainerNum": 6,
+            "maxContainerNum": 8
+          },
+          {
+            "cnname": "产商品中心-商品校验/查询-后台通道",
+            "name": "poc-check-microservice-ht",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          },
+          {
+            "cnname": "产商品中心-商品校验/查询-营业厅通道",
+            "name": "poc-check-microservice-web",
+            "initContainerNum": 3,
+            "maxContainerNum": 4
+          },
+          {
+            "cnname": "产商品中心-商品校验/查询-地市批量通道",
+            "name": "poc-check-microservice-ds",
+            "initContainerNum": 3,
+            "maxContainerNum": 4
+          },
+          {
+            "cnname": "产商品中心-商品校验/查询-物联网后台",
+            "name": "poc-check-microservice-iotht",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          },
+          {
+            "cnname": "产商品中心-商品校验/查询-物联网受理",
+            "name": "poc-check-microservice-iotss",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          },
+          {
+            "cnname": "产商品中心-商品校验/查询-灰度通道",
+            "name": "poc-check-microservice-grey",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          }
+        ],
+        "cnname": "商品校验/查询微服务",
+        "name": "poc-check-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "产商品中心-商品资费管理",
+            "name": "poc-config-microservice",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          }
+        ],
+        "cnname": "商品资费管理微服务",
+        "name": "poc-config-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "产商品中心-商品配置及生命周期管理",
+            "name": "poc-rate-microservice",
+            "initContainerNum": 1,
+            "maxContainerNum": 1
+          }
+        ],
+        "cnname": "商品配置及生命周期管理微服务",
+        "name": "poc-rate-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "产商品中心（容器化）",
+            "name": "poc-microservice",
+            "initContainerNum": 16,
+            "maxContainerNum": 24
+          }
+        ],
+        "cnname": "产商品中心（容器化）",
+        "name": "poc-microservice"
+      }
+    ],
+    "name": "产商品中心"
+  },
+  {
+    "mainAPIs": [
+      {
+        "channelApis": "csc_gateway_microservice_aop_api_v1,",
+        "cnname": "CP微服务接口",
+        "name": "csc_gateway_microservice_aop_api_v1"
+      },
+      {
+        "channelApis": "csc_auth_microservice_csc_api_v1_authentication_action_doOrderOrBroadcastAuthentication,",
+        "cnname": "播放/订购鉴权",
+        "name": "csc_auth_microservice_csc_api_v1_authentication_action_doOrderOrBroadcastAuthentication"
+      },
+      {
+        "channelApis": "csc_order_microservice_csc_v1_order_verify,",
+        "cnname": "订单校验",
+        "name": "csc_order_microservice_csc_v1_order_verify"
+      },
+      {
+        "channelApis": "csc_order_microservice_csc_v1_order_commit,",
+        "cnname": "生成订购",
+        "name": "csc_order_microservice_csc_v1_order_commit"
+      },
+      {
+        "channelApis": "csc_order_microservice_csc_v1_order_cancel,",
+        "cnname": "取消订购",
+        "name": "csc_order_microservice_csc_v1_order_cancel"
+      },
+      {
+        "channelApis": "csc_order_microservice_csc_v1_order_calcAmount,",
+        "cnname": "订单算费",
+        "name": "csc_order_microservice_csc_v1_order_calcAmount"
+      },
+      {
+        "channelApis": "csc_core_microservice_csc_api_v1_card_receiveCard,",
+        "cnname": "卡券领用",
+        "name": "csc_core_microservice_csc_api_v1_card_receiveCard"
+      },
+      {
+        "channelApis": "csc_core_microservice_csc_api_v1_marketing_case_availableToProduct,",
+        "cnname": "可订购营销方案查询",
+        "name": "csc_core_microservice_csc_api_v1_marketing_case_availableToProduct"
+      },
+      {
+        "channelApis": "csc_core_microservice_csc_api_v1_card_queryUserEnableCardBag,",
+        "cnname": "用户可用卡券查询",
+        "name": "csc_core_microservice_csc_api_v1_card_queryUserEnableCardBag"
+      },
+      {
+        "channelApis": "csc_core_microservice_v1_product_queryProductRecommend,",
+        "cnname": "用户可订购的产品推荐接口",
+        "name": "csc_core_microservice_v1_product_queryProductRecommend"
+      }
+    ],
+    "mainMicroServiceCnNames": "鉴权,订单及受理,计费中心,配置管理,后台网关",
+    "mainMicroServices": "csc-auth-microservice,csc-order-microservice,csc-core-microservice,csc-admin-microservice,csc-gateway-microservice",
+    "microServices": [
+      {
+        "channels": [
+          {
+            "cnname": "内容计费中心-鉴权",
+            "name": "csc-auth-microservice",
+            "initContainerNum": 16,
+            "maxContainerNum": 32
+          }
+        ],
+        "cnname": "鉴权微服务",
+        "name": "csc-auth-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "内容计费中心-订单及受理",
+            "name": "csc-order-microservice",
+            "initContainerNum": 8,
+            "maxContainerNum": 16
+          }
+        ],
+        "cnname": "订单及受理微服务",
+        "name": "csc-order-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "内容计费中心-计费中心",
+            "name": "csc-core-microservice",
+            "initContainerNum": 8,
+            "maxContainerNum": 16
+          }
+        ],
+        "cnname": "计费中心微服务",
+        "name": "csc-core-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "内容计费中心-配置管理",
+            "name": "csc-admin-microservice",
+            "initContainerNum": 6,
+            "maxContainerNum": 8
+          }
+        ],
+        "cnname": "配置管理微服务",
+        "name": "csc-admin-microservice"
+      },
+      {
+        "channels": [
+          {
+            "cnname": "内容计费中心-后台网关",
+            "name": "csc-gateway-microservice",
+            "initContainerNum": 8,
+            "maxContainerNum": 16
+          }
+        ],
+        "cnname": "后台网关微服务",
+        "name": "csc-gateway-microservice"
+      }
+    ],
+    "name": "内容计费中心"
+  }
+]

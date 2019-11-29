@@ -1,0 +1,9 @@
+server:
+  port: 18083
+spring:
+  application:
+    name: bigscreenshow
+  redis:
+    host: 127.0.0.1
+    port: 6379
+

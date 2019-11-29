@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" href="layui/css/layui.css" media="all">
+</head>
+
+<body style="overflow:hidden">
+	<div class="layui-carousel" id="test1" lay-filter="test1" style="overflow:hidden">
+	  <div carousel-item="" style="overflow:hidden">
+	    <div style="overflow:hidden"><iframe src="screen01.html" style="width: 100%;height: 100%;overflow:hidden"></iframe></div>
+	    <div style="overflow:hidden"><iframe src="screen02.html" style="width: 100%;height: 100%;overflow:hidden"></iframe></div>
+	    <div style="overflow:hidden"><iframe src="screen03.html" style="width: 100%;height: 100%;overflow:hidden"></iframe></div>
+	    <div style="overflow:hidden"><iframe src="screen04.html" style="width: 100%;height: 100%;overflow:hidden"></iframe></div>
+	  </div>
+	</div> 
+</body>
+<script src="layui/layui.js"></script>
+<script>
+layui.use('carousel', function(){
+  var carousel = layui.carousel;
+  //建造实例
+  carousel.render({
+    elem: '#test1'
+    ,width: '1920px' //设置容器宽度
+    ,height:'1080px'
+    ,arrow: 'always' //始终显示箭头
+   	,interval: 20000
+    //,anim: 'updown' //切换动画方式
+  });
+});
+</script>
+</html>

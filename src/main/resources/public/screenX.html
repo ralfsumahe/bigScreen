@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>业务中台监控大屏(4中心)</title>
+<link href="25daping/css25/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/dynamic.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+</head>
+
+<body class="bg" style="overflow:hidden">
+<div id="app">
+  <h1 style="font-size: 50px;color: #00B4F0;position: relative;left: 30px;">{{center}}</h1>
+  <div class="left_area02">
+    <div class="box09">
+      <div class="diagram05">
+		<div id="dynamiczxt2/产商品中心business"
+					v-bind:data-data="getDataDataBusiness(center)"
+					class="zxtDynamic"
+					style="width: 1050px; height: 420px;"></div>
+      </div>
+    </div>
+	<div class="box09">
+      <div class="diagram05">
+      	<div id="dynamiczxt2/产商品中心other"
+					v-bind:data-data="getDataDataOther(center)"
+					class="zxtDynamic" data-isareastyle=false
+					style="width: 1050px; height: 420px;"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="right_area02">
+    <div class="box09">
+      <div style="float: left;width: 50%;position: relative;">
+      	<div v-if="reqNum == 0">
+	  	&nbsp;
+	  	</div>
+	  	<div v-else>
+		  <template v-for="m in reqNum2">
+		  	<img src="images/man.png" style="margin-left: 20px;margin-top: 20px;height: 64px;width: 64px"/>
+		  </template>
+		</div>
+	  </div>
+	  <div style="float: left;width: 50%;text-align: center;">
+	  	<h1 style="color: #00B4F0;font-size: 40px">吞吐量</h1>
+      	<span style="color:red;font-size: 120px;position:relative;top: 120px">{{req}}</span>
+      	<span style="font-size: 50px;color: red;position: relative;top: 120px">次</span>
+      </div>
+	  
+    </div>
+	<div class="box09">
+	  <div style="float: left;width: 50%;position: relative;">
+	  	<div v-if="containerNum == 0">
+	  		<!-- <template v-for="n in 20">
+		  		<img src="images/man.png" style="margin-left: 20px;margin-top: 10px"/>
+		  	</template> -->
+		  	&nbsp;
+	  	</div>
+	  	<div v-else>
+	  		<template v-for="n in containerNum2">
+		  		<img src="images/container.png" style="margin-left: 20px;margin-top: 20px;height: 64px;width: 64px;float: left;"/>
+		  	</template>
+		  	<!-- <template v-for="n in 20-containerNum">
+		  		<img src="images/man.png" style="margin-left: 20px;margin-top: 10px"/>
+		  	</template> -->
+	  	</div>
+	  	<div style="display: none;font-size: 40px;float: left;position: relative;margin-left: 20px;margin-top: 30px;" id="containerNumChange">
+	  		<div v-if="containerNumChange > 0">
+	  			<span style="color: red">+{{containerNumChange}}</span>
+	  		</div>
+	  		<div v-else-if="containerNumChange < 0">
+	  			<span style="color: green">{{containerNumChange}}</span>
+	  		</div>
+	  	</div>
+		  
+	  </div>
+	  <div style="float: left;width: 50%;text-align: center;">
+	  	<h1 style="color: #00B4F0;font-size: 40px">容器数</h1>
+      	<span style="color:red;font-size: 120px;position:relative;top: 120px">{{containerNum}}</span>
+      	<span style="font-size: 50px;color: red;position: relative;top: 120px">个</span>
+      </div>
+    </div>
+  </div>
+</div>  
+</body>
+<script type="text/javascript">
+	var centers = {
+			ch:"客户资料中心",
+			cs:"产商品中心",
+			jf:"计费账务中心",
+			nr:"内容计费中心",
+			dd:"订单中心",
+			hl:"互联网中心"
+	}
+    var centerName = centers[GetQueryString("center")];
+
+	var app = new Vue({
+		el:"#app",
+		data:{
+			reqNum:0,
+			req:0,
+			reqNum2:0,
+			containerNum:0,
+			containerNum2:0,
+			containerNumChange:0,
+			center:centerName
+		},
+		mounted(){
+			this.$nextTick(() => {
+	            setInterval(this.getCenterInfos, 5000);
+	        })
+		},
+		methods:{
+			getCenterInfos(){
+				$.get(addParamTime("/demo/getList4RedisKey/CENTER:"+app.center+":OTHER"),function(data){
+					app.containerNum = data[0].containerNum;
+					app.containerNum2 = app.containerNum > 20?20:app.containerNum;
+					app.containerNumChange = data[0].containerNum - data[1].containerNum;
+				});
+				$.get(addParamTime("/demo/getList4RedisKey/CENTER:"+app.center+":BUSINESS"),function(data){
+					app.reqNum = Math.ceil(data[0].req/1000);
+					app.reqNum2 = app.reqNum > 20?20:app.reqNum;
+					app.req = data[0].req;
+				});
+			},
+			getDataDataBusiness(center){
+				return "{count:10,timeLen:1,xtitle:'时间',other:{barWidth:15},"+
+				"yInfos:["+
+					"{name:'吞吐量(次/分)',position:'left',fontSize:'18'}]"+
+				",datas:["+
+					"{module:'CENTER:"+center+":BUSINESS',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0',field:'req'}]}";
+			},
+			getDataDataOther(center){
+				return "{count:10,timeLen:1,xtitle:'时间',other:{barWidth:15,isAreaStyle:true},"+
+				"yInfos:["+
+					"{name:'容器数(个)',position:'left',fontSize:'18'}]"+
+				",datas:["+
+					"{module:'CENTER:"+center+":OTHER',dataTitle:'容器数',type:'line',yAxisIndex:'0',field:'containerNum'}]}";
+			}
+		},
+	 	watch : {
+	        containerNumChange:function(val) {
+	            $("#containerNumChange").show();
+	            setTimeout(function(){
+	            	$("#containerNumChange").hide();
+	            },2000);
+	        }
+	    }
+	});
+
+
+	$(function() {
+		
+		//创建仪表盘
+		var ybps = $(".ybp");
+		for(var i = 0;i < ybps.length;i++){
+			createYbp(ybps[i].id);
+		}
+		
+		//创建折线图
+		var zxts = $(".zxt");
+		for(var i = 0;i < zxts.length;i++){
+			var zxt = $(zxts[i]);
+			createZxt(zxts[i].id,zxt);
+		}
+		
+		var zxtDynamics = $(".zxtDynamic");
+		for(var i = 0;i< zxtDynamics.length;i++){
+			var zxtDynamic = $(zxtDynamics[i]);
+			createZxtDynamic(zxtDynamics[i].id,zxtDynamic);
+		}
+
+	});
+	
+	
+	function GetQueryString(name){
+	    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+	    var r = window.location.search.substr(1).match(reg);
+	    if(r!=null)return  unescape(r[2]); return null;
+	}
+/* 	————————————————
+	版权声明：本文为CSDN博主「Myname_China」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+	原文链接：https://blog.csdn.net/myname_china/article/details/83097282
+ */
+</script>
+</html>

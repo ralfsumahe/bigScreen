@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>业务中台监控大屏(总体)</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/dynamic.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+</head>
+
+<body class="bg" style="overflow:hidden">
+	<div class="header">
+		<img src="images/header.png" />
+	</div>
+	<div class="left_area">
+		<div class="box1">
+			<h2>
+				<img src="images/title1.png" />
+			</h2>
+			<div class="dashboard_item">
+				<div class="dashboard">
+					<div id="ybp/ybp_avg_cpu" class="ybp"
+						style="width: 170px; height: 170px; position: relative;"></div>
+				</div>
+				<div class="dashboard_name">
+					<span>cpu</span>
+				</div>
+			</div>
+			<div class="dashboard_item">
+				<div class="dashboard">
+					<div id="ybp/ybp_avg_disk" class="ybp"
+						style="width: 170px; height: 170px; position: relative;"></div>
+				</div>
+				<div class="dashboard_name">
+					<span>硬盘</span>
+				</div>
+			</div>
+			<div class="dashboard_item">
+				<div class="dashboard">
+					<div id="ybp/ybp_avg_memory" class="ybp"
+						style="width: 170px; height: 170px; position: relative;"></div>
+				</div>
+				<div class="dashboard_name">
+					<span>物理内存</span>
+				</div>
+			</div>
+			<div class="dashboard_item">
+				<div class="dashboard">
+					<div id="ybp/ybp_avg_visual_memory" class="ybp"
+						style="width: 170px; height: 170px; position: relative;"></div>
+				</div>
+				<div class="dashboard_name">
+					<span>虚拟内存</span>
+				</div>
+			</div>
+
+		</div>
+		<div class="box2">
+			<h2>
+				<img src="images/title_02.png" />
+			</h2>
+			<!--  <img src="images/diagram01.png" width="812" class=" diagram01" height="284" alt=""/>  -->
+			<div id="dynamiczxt2/互联网能力中心"
+				data-data="{count:40,timeLen:1,xtitle:'时间',other:{barWidth:12},
+		yInfos:[
+			{name:'吞吐量(次/分)',position:'left'},
+			{name:'成功率(%)',position:'right',max:'100'},
+			{name:'平均时长(ms)',position:'right',offset:'115'}]
+		,datas:[
+			{module:'ALL:all:BUSINESS',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0',field:'req'},
+			{module:'ALL:all:BUSINESS',dataTitle:'成功率',type:'line',yAxisIndex:'1',field:'success'},
+			{module:'ALL:all:BUSINESS',dataTitle:'平均时长',type:'line',yAxisIndex:'2',field:'avgrespontime'}]}"
+				class="zxtDynamic" style="width: 1380px; height: 334px;"></div>
+		</div>
+		<div class="box2_2">
+			<div class="diagram02_2">
+				<h3 class="diagram02_title">微服务健康度</h3>
+				<div class="dashbord03">
+					<div id="ybp/micro_services_health" class="ybp2"
+						style="width: 480px; height: 350px; position: relative; left: -70px"></div>
+				</div>
+			</div>
+			<div class="diagram02_2">
+				<h3 class="diagram02_title">容器健康度</h3>
+				<div class="dashbord03">
+					<div id="ybp/containersHealth" class="ybp2"
+						style="width: 480px; height: 350px; position: relative; left: -70px"></div>
+				</div>
+			</div>
+			<div class="diagram02_2">
+				<h3 class="diagram02_title">虚机健康度</h3>
+				<div class="dashbord03">
+					<div id="ybp/nodesHealth" class="ybp2"
+						style="width: 480px; height: 350px; position: relative; left: -70px"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="right_area">
+		<div class="box3">
+			<h2>
+				<img src="images/title2.png" />
+			</h2>
+			<div class="warn">
+				<div>
+					<h2 class="f_l">
+						<img src="images/hot_red.png" /> 紧急告警
+					</h2>
+					<h3 class="red">
+						<span id="紧急告警">0</span>个
+					</h3>
+				</div>
+				<div>
+					<h2 class="f_l">
+						<img src="images/hot_yellow.png" /> 重要告警
+					</h2>
+					<h3 class="yellow">
+						<span id="重要告警">0</span>个
+					</h3>
+				</div>
+				<div>
+					<h2 class="f_l">
+						<img src="images/hot_blue.png" /> 次要告警
+					</h2>
+					<h3 class="blue">
+						<span id="次要告警">0</span>个
+					</h3>
+				</div>
+				<div>
+					<h2 class="f_l">
+						<img src="images/hot_green.png" /> 提示告警
+					</h2>
+					<h3 class="green">
+						<span id="提示告警">0</span>个
+					</h3>
+				</div>
+			</div>
+		</div>
+		<div class="box4">
+			<h2>
+				<img src="images/title_06.png" />
+			</h2>
+			<table width="515" border="0" class="table01">
+				<tbody>
+					<tr>
+						<th scope="col">中心</th>
+						<th scope="col">微服务数</th>
+						<th scope="col">容器数</th>
+					</tr>
+					<tbody id="centerInfosApp">
+						<template v-for="centerInfo in centerInfos">
+							<tr>
+								<td>{{centerInfo[0].centerName}}</td>
+								<td>{{centerInfo[0].microserviceNum}}<span v-if="centerInfo[0].microserviceNum>centerInfo[1].microserviceNum" class="valueUp">&nbsp;↑</span><span v-if="centerInfo[0].microserviceNum<centerInfo[1].microserviceNum" class="valueDown">&nbsp;↓</span></td>
+								<td>{{centerInfo[0].containerNum}}<span v-if="centerInfo[0].containerNum>centerInfo[1].containerNum" class="valueUp">&nbsp;↑</span><span v-if="centerInfo[0].containerNum<centerInfo[1].containerNum" class="valueDown">&nbsp;↓</span></td>
+							</tr>
+						</template>
+					</tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript">
+	var centerInfosApp = new Vue({
+		el:"#centerInfosApp",
+		data:{
+			centerInfos:''
+		},
+		mounted(){
+			this.$nextTick(() => {
+	            setInterval(this.getCenterInfos, 5000);
+	        })
+		},
+		methods:{
+			getCenterInfos(){
+				$.get(addParamTime("/demo/getFrontCenterInfos"),function(data){
+					centerInfosApp.centerInfos = data; 
+					var centerInfoAll0 = {centerName:"总计：",microserviceNum:0,containerNum:0};
+					var centerInfoAll1 = {centerName:"总计：",microserviceNum:0,containerNum:0};
+					data.forEach(centerInfos=>{
+						centerInfoAll0.microserviceNum+=centerInfos[0].microserviceNum;
+						centerInfoAll0.containerNum+=centerInfos[0].containerNum;
+						centerInfoAll1.microserviceNum+=centerInfos[1].microserviceNum;
+						centerInfoAll1.containerNum+=centerInfos[1].containerNum;
+					});
+					centerInfosApp.centerInfos.push([centerInfoAll0,centerInfoAll1]);
+					
+				});
+			}
+		}
+	});
+
+	$(function() {
+		//创建仪表盘
+		var ybps = $(".ybp");
+		for (var i = 0; i < ybps.length; i++) {
+			createYbp(ybps[i].id);
+		}
+
+		var ybps2 = $(".ybp2");
+		for (var i = 0; i < ybps2.length; i++) {
+			var ybp2 = $(ybps2[i]);
+			createYbp2(ybps2[i].id, ybps2);
+		}
+
+		var zxtDynamics = $(".zxtDynamic");
+		for (var i = 0; i < zxtDynamics.length; i++) {
+			var zxtDynamic = $(zxtDynamics[i]);
+			createZxtDynamic(zxtDynamics[i].id, zxtDynamic);
+		}
+
+		createAlertInfo("getAlertInfo");
+
+	});
+
+	function createAlertInfo(domId){
+		$.get("/demo/"+domId,function(data){
+			for(var i = 0;i < data.titles.length;i++){
+				$("#"+data.titles[i]).html(data.counts[i]);
+			}
+		});
+
+		setInterval(
+				function() {
+					var time = new Date().getTime();
+					$.get("/demo/"+domId+"?"+time,function(data){
+						for(var i = 0;i < data.titles.length;i++){
+							$("#"+data.titles[i]).html(data.counts[i]);
+						}
+					});
+				}, 10000);
+	}
+</script>
+</html>

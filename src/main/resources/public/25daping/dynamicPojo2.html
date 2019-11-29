@@ -1,0 +1,224 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/dynamic.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+<div id="centerMicroserviceApiInfosApp">
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	<div id="dynamiczxt2/互联网能力中心" data-data="{count:20,timeLen:1,xtitle:'时间',
+	yInfos:[
+		{name:'吞吐量(次/分)',position:'left'},
+		{name:'成功率(%)',position:'right',max:'100'},
+		{name:'平均时长(ms)',position:'right',offset:'115'}]
+	,datas:[
+		{module:'互联网中心_BUSINESS',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0',field:'req'},
+		{module:'互联网中心_BUSINESS',dataTitle:'成功率',type:'line',yAxisIndex:'1',field:'success'},
+		{module:'互联网中心_BUSINESS',dataTitle:'平均时长',type:'line',yAxisIndex:'2',field:'avgrespontime'}]}" 
+	class="zxtDynamic" style="width: 550px; height: 300px;position: absolute;"></div>
+      
+      <div id="dynamiczxt2/客户资料中心" data-data="{count:20,timeLen:1,xtitle:'时间',
+	yInfos:[
+		{name:'吞吐量(次/分)',position:'left'},
+		{name:'成功率(%)',position:'right',max:'100'},
+		{name:'平均时长(ms)',position:'right',offset:'115'}]
+	,datas:[
+		{module:'互联网中心_BUSINESS',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0',field:'req'},
+		{module:'互联网中心_BUSINESS',dataTitle:'成功率',type:'line',yAxisIndex:'1',field:'success'},
+		{module:'互联网中心_BUSINESS',dataTitle:'平均时长',type:'line',yAxisIndex:'2',field:'avgrespontime'}]}" 
+	class="zxtDynamic" style="width: 550px; height: 300px;position: absolute;top: 300px"></div>
+      
+      <div id="dynamiczxt2/产商品中心" data-data="{count:20,timeLen:1,xtitle:'时间',
+	yInfos:[
+		{name:'吞吐量(次/分)',position:'left'},
+		{name:'成功率(%)',position:'right',max:'100'},
+		{name:'平均时长(ms)',position:'right',offset:'115'}]
+	,datas:[
+		{module:'互联网中心_BUSINESS',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0',field:'req'},
+		{module:'互联网中心_BUSINESS',dataTitle:'成功率',type:'line',yAxisIndex:'1',field:'success'},
+		{module:'互联网中心_BUSINESS',dataTitle:'平均时长',type:'line',yAxisIndex:'2',field:'avgrespontime'}]}" 
+	class="zxtDynamic" style="width: 550px; height: 300px;position: absolute;top: 600px"></div>
+      
+      <div style="width: 600px; height: 270px;position: absolute;left: 600px">
+		<table style="width: 100%;height:100%;text-align: center;" border="1">
+			<thead>
+				<th>名称</th>
+				<th>当前容器数（个）</th>
+				<th>初始容器数（个）</th>
+				<th>失败容器数（个）</th>
+			</thead>
+			<tbody v-if="centerMicroserviceApiInfos['计费账务中心'] != null">
+				<template v-for="api in centerMicroserviceApiInfos['计费账务中心']['microservices']">
+				<tr>
+					<td>{{api[0].microserviceName}}</td>
+					<td>{{api[0].currentContainerNum}}</td>
+					<td>{{api[0].initContainerNum}}</td>
+					<td>{{api[0].errorContainerNum}}</td>
+				</tr>
+				</template>				
+			</tbody>
+		</table>
+	</div>
+	
+	<div style="width: 600px; height: 270px;position: absolute;left: 600px;top: 300px">
+		<table style="width: 100%;height:100%;text-align: center;" border="1">
+			<thead>
+				<th>名称</th>
+				<th>当前容器数（个）</th>
+				<th>初始容器数（个）</th>
+				<th>失败容器数（个）</th>
+			</thead>
+			<tbody v-if="centerMicroserviceApiInfos['计费账务中心'] != null">
+				<template v-for="api in centerMicroserviceApiInfos['计费账务中心']['microservices']">
+				<tr>
+					<td>{{api[0].microserviceName}}</td>
+					<td>{{api[0].currentContainerNum}}</td>
+					<td>{{api[0].initContainerNum}}</td>
+					<td>{{api[0].errorContainerNum}}</td>
+				</tr>
+				</template>				
+			</tbody>
+		</table>
+	</div>
+	
+	<div style="width: 600px; height: 270px;position: absolute;left: 600px;top: 600px">
+		<table style="width: 100%;height:100%;text-align: center;" border="1">
+			<thead>
+				<th>名称</th>
+				<th>当前容器数（个）</th>
+				<th>初始容器数（个）</th>
+				<th>失败容器数（个）</th>
+			</thead>
+			<tbody v-if="centerMicroserviceApiInfos['计费账务中心'] != null">
+				<template v-for="api in centerMicroserviceApiInfos['计费账务中心']['microservices']">
+				<tr>
+					<td>{{api[0].microserviceName}}</td>
+					<td>{{api[0].currentContainerNum}}</td>
+					<td>{{api[0].initContainerNum}}</td>
+					<td>{{api[0].errorContainerNum}}</td>
+				</tr>
+				</template>				
+			</tbody>
+		</table>
+	</div>
+	
+	
+	
+	
+	
+	<div style="width: 600px; height: 270px;position: absolute;left: 1200px;">
+		<table style="width: 100%;height:100%;text-align: center;" border="1">
+			<thead>
+				<th>名称</th>
+				<th>吞吐量（次/分）</th>
+				<th>成功率（%）</th>
+				<th>平均时长（ms）</th>
+			</thead>
+			<tbody v-if="centerMicroserviceApiInfos['计费账务中心'] != null">
+				<template v-for="api in centerMicroserviceApiInfos['计费账务中心']['apis']">
+				<tr>
+					<td>{{api[0].apiName}}</td>
+					<td>{{api[0].req}}</td>
+					<td>{{api[0].success}}</td>
+					<td>{{api[0].avgrespontime}}</td>
+				</tr>
+				</template>				
+			</tbody>
+		</table>
+	</div>
+	<div style="width: 600px; height: 270px;position: absolute;left: 1200px;top: 300px">
+		<table style="width: 100%;height:100%;text-align: center;" border="1">
+			<thead>
+				<th>名称</th>
+				<th>吞吐量（次/分）</th>
+				<th>成功率（%）</th>
+				<th>平均时长（ms）</th>
+			</thead>
+			<tbody v-if="centerMicroserviceApiInfos['计费账务中心'] != null">
+				<template v-for="api in centerMicroserviceApiInfos['计费账务中心']['apis']">
+				<tr>
+					<td>{{api[0].apiName}}</td>
+					<td>{{api[0].req}}</td>
+					<td>{{api[0].success}}</td>
+					<td>{{api[0].avgrespontime}}</td>
+				</tr>
+				</template>				
+			</tbody>
+		</table>
+	</div>
+	<div style="width: 600px; height: 270px;position: absolute;left: 1200px;top: 600px">
+		<table style="width: 100%;height:100%;text-align: center;" border="1">
+			<thead>
+				<th>名称</th>
+				<th>吞吐量（次/分）</th>
+				<th>成功率（%）</th>
+				<th>平均时长（ms）</th>
+			</thead>
+			<tbody v-if="centerMicroserviceApiInfos['计费账务中心'] != null">
+				<template v-for="api in centerMicroserviceApiInfos['计费账务中心']['apis']">
+				<tr>
+					<td>{{api[0].apiName}}</td>
+					<td>{{api[0].req}}</td>
+					<td>{{api[0].success}}</td>
+					<td>{{api[0].avgrespontime}}</td>
+				</tr>
+				</template>				
+			</tbody>
+		</table>
+	</div>
+</div>	
+	
+</body>
+
+
+
+<script type="text/javascript">
+	var centerMicroserviceApiInfosApp = new Vue({
+		el:"#centerMicroserviceApiInfosApp",
+		data:{
+			centerMicroserviceApiInfos:''
+		},
+		mounted(){
+			this.$nextTick(() => {
+	            setInterval(this.getFrontCenterMicroserviceApiInfos, 5000);
+	        })
+		},
+		methods:{
+			getFrontCenterMicroserviceApiInfos(){
+				$.get(addParamTime("/demo/getFrontCenterMicroserviceApiInfos"),function(data){
+					centerMicroserviceApiInfosApp.centerMicroserviceApiInfos = data; 
+				});
+			}
+		}
+	});
+
+	$(function() {
+		
+		
+		//创建仪表盘
+		var ybps = $(".ybp");
+		for(var i = 0;i < ybps.length;i++){
+			createYbp(ybps[i].id);
+		}
+		
+		var ybps2 = $(".ybp2");
+		for(var i = 0;i < ybps2.length;i++){
+			var ybp2 = $(ybps2[i]);
+			createYbp2(ybps2[i].id,ybps2);
+		}
+		
+
+		var zxtDynamics = $(".zxtDynamic");
+		for(var i = 0;i< zxtDynamics.length;i++){
+			var zxtDynamic = $(zxtDynamics[i]);
+			createZxtDynamic(zxtDynamics[i].id,zxtDynamic);
+		}
+		
+	});
+
+	
+</script>
+</html>

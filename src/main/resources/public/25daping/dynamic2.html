@@ -1,0 +1,158 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/dynamic.js"></script>
+</head>
+<body>
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	<!-- <div id="dynamiczxt/动态生成" data-data="{count:20,timeLen:5,xtitle:'时间',ytitle:'cpu占用率(%)',datas:[{module:'avgcpu',dataTitle:'占用率'},{module:'avgcpu2',dataTitle:'占用率2'},{module:'avgcpu3',dataTitle:'占用率3'}]}" 
+	class="zxtDynamic" style="width: 830px; height: 400px; position: absolute;"></div>
+	
+	<div id="dynamiczxt/动态生成1" data-data="{count:20,timeLen:5,xtitle:'时间',ytitle:'cpu占用率(%)',datas:[{module:'avgcpu',dataTitle:'占用率'}]}" 
+	class="zxtDynamic" style="width: 830px; height: 400px; position: absolute;top: 400px"></div>
+	
+	<div id="dynamiczxt/动态生成2" data-data="{count:20,timeLen:5,xtitle:'时间',ytitle:'cpu占用率(%)',datas:[{module:'avgcpu2',dataTitle:'占用率2'}]}" 
+	class="zxtDynamic" style="width: 830px; height: 400px; position: absolute;top: 800px"></div>
+	
+	<div id="dynamiczxt/动态生成3" data-data="{count:20,timeLen:5,xtitle:'时间',ytitle:'cpu占用率(%)',datas:[{module:'avgcpu3',dataTitle:'占用率3'}]}" 
+	class="zxtDynamic" style="width: 830px; height: 400px; position: absolute;top: 1200px"></div> -->
+	
+	
+	<div id="dynamiczxt/动态生成多y" data-data="{count:20,timeLen:5,xtitle:'时间',
+	yInfos:[
+		{name:'吞吐量(次/分)',position:'left'},
+		{name:'成功率(%)',position:'right',max:'100',min:'90'},
+		{name:'平均时长(ms)',position:'right',offset:'120'}]
+	,datas:[
+		{module:'avgcpu',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0'},
+		{module:'avgcpu2',dataTitle:'成功率',type:'line',yAxisIndex:'1'},
+		{module:'avgcpu3',dataTitle:'平均时长',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 1300px; height: 800px; position: absolute;left: 600px"></div>
+	
+	
+	<div id="dynamiczxt/动态生成多y11" data-data="{count:20,timeLen:5,xtitle:'时间',
+	yInfos:[
+		{name:'次/分',position:'left'},
+		{name:'%',position:'right',max:'100',min:'90'},
+		{name:'ms',position:'right',offset:'60'}]
+	,datas:[
+		{module:'avgcpu',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0'},
+		{module:'avgcpu2',dataTitle:'成功率',type:'line',yAxisIndex:'1'},
+		{module:'avgcpu3',dataTitle:'平均时长',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 630px; height: 400px; position: absolute;"></div>
+	
+	
+	
+	
+	<div id="dynamiczxt/动态生成多y12" data-data="{count:20,timeLen:5,xtitle:'时间',
+	yInfos:[
+		{name:'次/分',position:'left'},
+		{name:'%',position:'right',max:'100',min:'90'},
+		{name:'ms',position:'right',offset:'60'}]
+	,datas:[
+		{module:'avgcpu',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0'},
+		{module:'avgcpu2',dataTitle:'成功率',type:'line',yAxisIndex:'1'},
+		{module:'avgcpu3',dataTitle:'平均时长',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 630px; height: 400px; position: absolute;left: 1800px;"></div>
+	
+	
+	<div id="dynamiczxt/动态生成多y13" data-data="{count:20,timeLen:5,xtitle:'时间',
+	yInfos:[
+		{name:'次/分',position:'left'},
+		{name:'%',position:'right',max:'100',min:'90'},
+		{name:'ms',position:'right',offset:'60'}]
+	,datas:[
+		{module:'avgcpu',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0'},
+		{module:'avgcpu2',dataTitle:'成功率',type:'line',yAxisIndex:'1'},
+		{module:'avgcpu3',dataTitle:'平均时长',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 630px; height: 400px; position: absolute;top: 400px"></div>
+	
+	<div id="dynamiczxt/动态生成多y14" data-data="{count:20,timeLen:5,xtitle:'时间',
+	yInfos:[
+		{name:'次/分',position:'left'},
+		{name:'%',position:'right',max:'100',min:'90'},
+		{name:'ms',position:'right',offset:'60'}]
+	,datas:[
+		{module:'avgcpu',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0'},
+		{module:'avgcpu2',dataTitle:'成功率',type:'line',yAxisIndex:'1'},
+		{module:'avgcpu3',dataTitle:'平均时长',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 630px; height: 400px; position: absolute;left:1800px;top: 400px"></div>
+	
+	<div id="dynamiczxt/动态生成多y15" data-data="{count:20,timeLen:5,xtitle:'时间',
+	yInfos:[
+		{name:'次/分',position:'left'},
+		{name:'%',position:'right',max:'100',min:'90'},
+		{name:'ms',position:'right',offset:'60'}]
+	,datas:[
+		{module:'avgcpu',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0'},
+		{module:'avgcpu2',dataTitle:'成功率',type:'line',yAxisIndex:'1'},
+		{module:'avgcpu3',dataTitle:'平均时长',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 630px; height: 400px; position: absolute;top: 800px"></div>
+	
+	<div id="dynamiczxt/动态生成多y16" data-data="{count:20,timeLen:5,xtitle:'时间',
+	yInfos:[
+		{name:'次/分',position:'left'},
+		{name:'%',position:'right',max:'100',min:'90'},
+		{name:'ms',position:'right',offset:'60'}]
+	,datas:[
+		{module:'avgcpu',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0'},
+		{module:'avgcpu2',dataTitle:'成功率',type:'line',yAxisIndex:'1'},
+		{module:'avgcpu3',dataTitle:'平均时长',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 630px; height: 400px; position: absolute;top: 800px;left: 600px"></div>
+	
+	<div id="dynamiczxt/动态生成多y17" data-data="{count:20,timeLen:5,xtitle:'时间',
+	yInfos:[
+		{name:'次/分',position:'left'},
+		{name:'%',position:'right',max:'100',min:'90'},
+		{name:'ms',position:'right',offset:'60'}]
+	,datas:[
+		{module:'avgcpu',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0'},
+		{module:'avgcpu2',dataTitle:'成功率',type:'line',yAxisIndex:'1'},
+		{module:'avgcpu3',dataTitle:'平均时长',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 630px; height: 400px; position: absolute;top: 800px;left: 1200px"></div>
+	
+	<div id="dynamiczxt/动态生成多y18" data-data="{count:20,timeLen:5,xtitle:'时间',
+	yInfos:[
+		{name:'次/分',position:'left'},
+		{name:'%',position:'right',max:'100',min:'90'},
+		{name:'ms',position:'right',offset:'60'}]
+	,datas:[
+		{module:'avgcpu',dataTitle:'吞吐量',type:'bar',yAxisIndex:'0'},
+		{module:'avgcpu2',dataTitle:'成功率',type:'line',yAxisIndex:'1'},
+		{module:'avgcpu3',dataTitle:'平均时长',type:'line',yAxisIndex:'2'}]}" 
+	class="zxtDynamic" style="width: 630px; height: 400px; position: absolute;top: 800px;left: 1800px"></div>
+	
+
+
+
+</body>
+
+
+
+<script type="text/javascript">
+	$(function() {
+		//创建仪表盘
+		var ybps = $(".ybp");
+		for(var i = 0;i < ybps.length;i++){
+			createYbp(ybps[i].id);
+		}
+		
+		//创建折线图
+		var zxts = $(".zxt");
+		for(var i = 0;i < zxts.length;i++){
+			var zxt = $(zxts[i]);
+			createZxt(zxts[i].id,zxt);
+		}
+		
+		var zxtDynamics = $(".zxtDynamic");
+		for(var i = 0;i< zxtDynamics.length;i++){
+			var zxtDynamic = $(zxtDynamics[i]);
+			createZxtDynamic(zxtDynamics[i].id,zxtDynamic);
+		}
+
+	});
+
+</script>
+</html>

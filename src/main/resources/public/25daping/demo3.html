@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/demo.js"></script>
+</head>
+<body>
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	<div id="ybp/ybp_avg_cpu" class="ybp" style="width: 400px; height: 400px; position: absolute;"></div>
+	<div id="ybp/ybp_avg_disk" class="ybp" style="width: 400px; height: 400px; position: absolute;left: 500px"></div>
+	<div id="ybp/ybp_avg_memory" class="ybp" style="width: 400px; height: 400px; position: absolute;left: 1000px"></div>
+	<div id="ybp/ybp_avg_visual_memory" class="ybp" style="width: 400px; height: 400px; position: absolute;left: 1500px"></div>
+	
+	
+	<div id="zxt/zxt_avg_cpu" class="zxt" data-linetype="line" style="width: 500px; height: 300px; position: absolute;top: 400px"></div>
+	<div id="zxt/zxt_avg_disk" class="zxt" data-linetype="line" style="width: 500px; height: 300px; position: absolute;left: 500px;top: 400px"></div>
+	<div id="zxt/zxt_avg_memory" class="zxt" data-linetype="line" style="width: 500px; height: 300px; position: absolute;left: 1000px;top: 400px"></div>
+	<div id="zxt/zxt_avg_visual_memory" class="zxt" data-linetype="line" style="width: 500px; height: 300px; position: absolute;left: 1500px;top: 400px"></div>
+	
+	<div id="zxt/zzt_avg_cpu" class="zxt" data-linetype="bar" style="width: 500px; height: 300px; position: absolute;top: 700px"></div>
+	<div id="zxt/zzt_avg_disk" class="zxt" data-linetype="bar" style="width: 500px; height: 300px; position: absolute;left: 500px;top: 700px"></div>
+	<div id="zxt/zzt_avg_memory" class="zxt" data-linetype="bar" style="width: 500px; height: 300px; position: absolute;left: 1000px;top: 700px"></div>
+	<div id="zxt/zzt_avg_visual_memory" class="zxt" data-linetype="bar" style="width: 500px; height: 300px; position: absolute;left: 1500px;top: 700px"></div>
+	
+
+
+
+</body>
+
+
+
+<script type="text/javascript">
+	$(function() {
+		//创建仪表盘
+		var ybps = $(".ybp");
+		for(var i = 0;i < ybps.length;i++){
+			createYbp(ybps[i].id);
+		}
+		
+		//创建折线图
+		var zxts = $(".zxt");
+		for(var i = 0;i < zxts.length;i++){
+			createZxt(zxts[i].id,$(zxts[i]).data("linetype"),$(zxts[i]).data("isareastyle"));
+		}
+
+	});
+
+</script>
+</html>
