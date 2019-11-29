@@ -1,5 +1,5 @@
 # 业务监控大屏  java后台+echart.js前台
-	业务监控大屏，使用echart.js绘制的大屏
+	业务监控大屏  java后台+echart.js前台
 	
 	地址
 	http://localhost:18083/screen01.html
