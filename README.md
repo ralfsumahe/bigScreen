@@ -1,4 +1,4 @@
-# bigScreen
+# 业务监控大屏  java后台+echart.js前台
 	业务监控大屏，使用echart.js绘制的大屏
 	
 	地址
