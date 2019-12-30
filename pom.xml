@@ -18,7 +18,9 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <!--依赖写这里-->
     <dependencies>
+         <!--每个依赖一个-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
