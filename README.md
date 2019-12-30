@@ -50,11 +50,11 @@
       "total": 110,
       "value": 100.0
     }
+33333
 
 
 
-
-
+22222
 
 	dynamicPojo1_current
 	表示当前的值           pojo
@@ -63,7 +63,7 @@
 		"disk": 69.1,
 		"memery": 66.55
 	}
-
+111111
 	dynamicPojo1_list
 	表示随着时间的值数组    time -> pojo
 	{
