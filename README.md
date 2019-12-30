@@ -8,16 +8,14 @@
 	http://localhost:18083/screen04.html
 	http://localhost:18083/screen.html      四个图的轮播
 	http://localhost:18083/screenXs.html    吞吐量、容器数演示轮播页面
-
 	使用技术
 	echart.js		用来绘制折线图、仪表盘
 	vue.js		用来绘制表格，或者动态组织页面
 	模版模式	用来统一构造redis数据
-	
+	22222222
 	实现：
 	1.折线图
 	2.仪表盘
-	
 	原理：
 	1.定时调度存储数据到redis
 		使用了模版模式，将所有的添加数据制作成统一的操作方式
@@ -27,7 +25,6 @@
 			{redisKey}_list     表示随着时间的值数组    time -> pojo
 			{redisKey}_current  表示当前的值           pojo
 	2.controller从redis获取数据，组装echart.js所需要的格式，展现折线图和仪表盘
-
 	redis数据格式：
 	折线图
     ALL:all:BUSINESS_list
@@ -43,6 +40,7 @@
         "req": 34258.0
       }
     }
+    
 	仪表盘
     {
       "normal": 110,
@@ -50,12 +48,6 @@
       "total": 110,
       "value": 100.0
     }
-
-
-
-
-
-
 	dynamicPojo1_current
 	表示当前的值           pojo
 	{
