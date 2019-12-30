@@ -1,6 +1,6 @@
 # 业务监控大屏  java后台+echart.js前台
 	业务监控大屏  java后台+echart.js前台
-	
+	22222222
 	地址
 	http://localhost:18083/screen01.html
 	http://localhost:18083/screen02.html
@@ -12,10 +12,11 @@
 	echart.js		用来绘制折线图、仪表盘
 	vue.js		用来绘制表格，或者动态组织页面
 	模版模式	用来统一构造redis数据
-	
+	333333
 	实现：
 	1.折线图
 	2.仪表盘
+	444444
 	原理：
 	1.定时调度存储数据到redis
 		使用了模版模式，将所有的添加数据制作成统一的操作方式
